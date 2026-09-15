@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WayCar — le GPS européen qui dit la vérité</title>
+<meta name="description" content="Itinéraires avec trafic, radars, vignettes, carburant et planification de recharge basée sur l'allure réelle. CarPlay. Pensé pour l'Europe.">
+<style>
+:root{--bg:#f4f6f8;--panel:#fff;--ink:#12181f;--dim:#5a6673;--rule:#dfe4ea;
+      --auto:#1b5fa8; --nat:#0f7a4a; --alert:#c8102e; --sign:#f2c200;}
+@media(prefers-color-scheme:dark){:root{--bg:#0c1116;--panel:#141b22;--ink:#e8edf2;--dim:#94a1ae;--rule:#222b34}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:46rem;margin:0 auto;padding:0 22px 90px}
+/* bandeau autoroute */
+.band{background:var(--auto);color:#fff}
+.band .wrap{padding:10px 22px;font-size:13px;letter-spacing:.04em;display:flex;gap:22px;flex-wrap:wrap}
+header{padding:60px 0 36px}
+h1{font-size:clamp(28px,5.6vw,42px);line-height:1.16;letter-spacing:-.022em;font-weight:680;max-width:18ch}
+.stand{color:var(--dim);font-size:18px;margin-top:15px;max-width:46ch}
+section{padding:38px 0;border-top:1px solid var(--rule)}
+h2{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);font-weight:680;margin-bottom:18px}
+p{margin-bottom:13px;color:var(--dim)}
+p.ink{color:var(--ink)}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:11px 9px;border-bottom:1px solid var(--rule)}
+th{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);font-weight:680}
+td b{font-weight:640}
+ul.kit{list-style:none;display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:10px;overflow:hidden}
+ul.kit li{background:var(--panel);padding:15px 18px;font-size:15px;color:var(--dim)}
+ul.kit b{color:var(--ink);font-weight:640;display:block}
+.honest{background:var(--panel);border:1px solid var(--rule);border-top:4px solid var(--sign);
+  border-radius:0 0 10px 10px;padding:20px}
+.honest h3{font-size:15.5px;font-weight:660;margin-bottom:10px}
+.honest p{font-size:15px;margin-bottom:10px}
+.honest p:last-child{margin-bottom:0}
+a{color:var(--auto)}
+@media(prefers-color-scheme:dark){a{color:#79b4f2}}
+footer{border-top:1px solid var(--rule);padding-top:26px;color:var(--dim);font-size:13px;text-align:center}
+</style>
+</head>
+<body>
+<div class="band"><div class="wrap">
+  <span>Sans compte</span><span>Sans publicité</span><span>CarPlay</span><span>Europe</span>
+</div></div>
+<div class="wrap">
+
+<header>
+  <h1>Un GPS pensé pour l'Europe, et pour dire la vérité</h1>
+  <p class="stand">WayCar calcule des itinéraires avec le trafic réel, vous prévient des radars et des vignettes, et planifie la recharge sur votre allure réelle plutôt que sur le chiffre du constructeur.</p>
+</header>
+
+<section>
+  <h2>Trois itinéraires, trois raisons</h2>
+  <table>
+    <thead><tr><th>Choix</th><th>Ce qu'il optimise</th><th>Quand le prendre</th></tr></thead>
+    <tbody>
+      <tr><td><b>Le plus rapide</b></td><td>Le temps de trajet, trafic inclus</td><td>Quand vous êtes attendu.</td></tr>
+      <tr><td><b>Le plus court</b></td><td>La distance parcourue</td><td>Quand le carburant coûte plus cher que le temps.</td></tr>
+      <tr><td><b>Le plus économique</b></td><td>Péages, carburant et consommation réelle</td><td>Sur les longs trajets, où l'écart devient un vrai montant.</td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:14px">L'écart entre les trois est affiché en minutes <em>et</em> en euros, avant de partir. C'est le seul moment où l'information sert encore à quelque chose.</p>
+</section>
+
+<section>
+  <h2>Ce qu'il y a à bord</h2>
+  <ul class="kit">
+    <li><b>Trafic et incidents</b>Recalcul quand la route change, pas cinq kilomètres plus tard.</li>
+    <li><b>Radars et contrôles</b>Signalés à l'approche, avec la limite en vigueur sur le segment.</li>
+    <li><b>Vignettes et péages</b>Les vignettes exigées par les pays traversés, annoncées avant la frontière.</li>
+    <li><b>Recharge électrique</b>Un plan de recharge calculé sur votre consommation observée, pas sur l'autonomie annoncée.</li>
+    <li><b>Carburant et parking</b>Les prix et les places le long de l'itinéraire, pas seulement à l'arrivée.</li>
+    <li><b>CarPlay</b>L'écran de la voiture, avec la même carte et les mêmes alertes.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Ce que WayCar ne fera pas</h2>
+  <div class="honest">
+    <h3>À lire avant de compter dessus</h3>
+    <p>Les données de radars et de vignettes proviennent de sources publiques et changent. WayCar les tient à jour du mieux qu'il peut&nbsp;; la signalisation sur place fait toujours foi, et respecter les limites reste votre responsabilité.</p>
+    <p>La planification de recharge s'améliore avec les kilomètres&nbsp;: les premiers trajets s'appuient sur des valeurs par défaut, et l'estimation devient juste une fois votre consommation réelle observée.</p>
+    <p>WayCar n'a pas de compte et ne construit pas de profil. Vos trajets restent sur votre téléphone.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Questions</h2>
+  <p class="ink"><b>Faut-il créer un compte&nbsp;?</b></p>
+  <p>Non. Aucun compte, aucune inscription.</p>
+  <p class="ink"><b>Est-ce que ça marche hors connexion&nbsp;?</b></p>
+  <p>La navigation continue sur un itinéraire déjà calculé si le réseau tombe. Le trafic en direct, lui, a besoin d'une connexion.</p>
+  <p class="ink"><b>Mes trajets sont-ils envoyés quelque part&nbsp;?</b></p>
+  <p>Non. Voir la <a href="privacy.html">politique de confidentialité</a>.</p>
+</section>
+
+</div>
+<footer class="wrap">
+  <a href="support.html">Assistance</a> &middot; <a href="privacy.html">Confidentialité</a> &middot;
+  <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">CLUF</a><br><br>
+  &copy; 2026 WayCar &middot; hugomoriceau@gmail.com
+</footer>
+</body>
+</html>

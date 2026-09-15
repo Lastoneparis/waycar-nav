@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WayCar — Assistance</title>
+<style>
+:root{--bg:#f4f6f8;--panel:#fff;--ink:#12181f;--dim:#5a6673;--rule:#dfe4ea;--auto:#1b5fa8;--sign:#f2c200}
+@media(prefers-color-scheme:dark){:root{--bg:#0c1116;--panel:#141b22;--ink:#e8edf2;--dim:#94a1ae;--rule:#222b34}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+.band{background:var(--auto);color:#fff}
+.band .wrap{padding:10px 22px;font-size:13px;letter-spacing:.04em}
+.wrap{max-width:46rem;margin:0 auto;padding:0 22px 90px}
+header{padding:56px 0 32px}
+h1{font-size:32px;line-height:1.18;letter-spacing:-.02em;font-weight:680}
+.stand{color:var(--dim);font-size:17.5px;margin-top:13px}
+section{padding:36px 0;border-top:1px solid var(--rule)}
+h2{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);font-weight:680;margin-bottom:16px}
+h3{font-size:15.5px;font-weight:660;margin:20px 0 5px}
+p{margin-bottom:12px;color:var(--dim)}
+p.ink{color:var(--ink)}
+.card{background:var(--panel);border:1px solid var(--rule);border-left:4px solid var(--sign);border-radius:0 10px 10px 0;padding:18px 20px}
+.card p:last-child{margin-bottom:0}
+a{color:var(--auto)}
+@media(prefers-color-scheme:dark){a{color:#79b4f2}}
+footer{border-top:1px solid var(--rule);padding-top:24px;color:var(--dim);font-size:13px;text-align:center}
+</style>
+</head>
+<body>
+<div class="band"><div class="wrap">Assistance WayCar</div></div>
+<div class="wrap">
+<header>
+  <h1>Assistance</h1>
+  <p class="stand">GPS européen &mdash; trafic, radars, vignettes et recharge.</p>
+</header>
+
+<section>
+  <h2>Nous écrire</h2>
+  <div class="card">
+    <p class="ink"><b>hugomoriceau@gmail.com</b></p>
+    <p>Précisez la version de l'app (Réglages, en bas de l'écran), votre modèle d'iPhone, et le pays où vous rouliez. Pour un itinéraire discutable, le point de départ et l'arrivée nous permettent de le rejouer.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Problèmes courants</h2>
+  <h3>La position est imprécise ou saute</h3>
+  <p>Réglages iOS &rarr; Confidentialité &rarr; Service de localisation &rarr; WayCar&nbsp;: choisissez «&nbsp;Lorsque l'app est active&nbsp;» au minimum, et activez la Localisation précise. En ville dense, le premier point GPS peut mettre quelques secondes à se fixer.</p>
+
+  <h3>Pas de guidage vocal</h3>
+  <p>Vérifiez le bouton silencieux de l'iPhone et le volume pendant que le guidage parle &mdash; iOS règle le volume vocal séparément de la sonnerie. En Bluetooth, la voiture doit être sur la source téléphone.</p>
+
+  <h3>L'app ne signale pas un radar que je connais</h3>
+  <p>Les bases de radars sont publiques et changent. Signalez-le nous avec la route et le sens de circulation&nbsp;: c'est la façon la plus utile de nous aider. La signalisation sur place fait toujours foi.</p>
+
+  <h3>Le plan de recharge semble faux</h3>
+  <p>Il s'appuie sur votre consommation observée. Sur les premiers trajets, il utilise des valeurs par défaut et se corrige ensuite. Un trajet très différent des précédents (montagne, remorque, grand froid) le fait temporairement dériver.</p>
+
+  <h3>CarPlay n'affiche pas WayCar</h3>
+  <p>Réglages iOS &rarr; Général &rarr; CarPlay &rarr; votre voiture &rarr; Personnaliser, puis ajoutez WayCar. Un câble défectueux est la deuxième cause la plus fréquente.</p>
+
+  <h3>Restaurer un achat</h3>
+  <p>Réglages dans l'app &rarr; Restaurer les achats, avec le compte Apple qui a effectué l'achat.</p>
+</section>
+
+<section>
+  <h2>Vos données</h2>
+  <p>WayCar n'a pas de compte et ne constitue pas de profil de déplacement. Vos trajets restent sur votre iPhone&nbsp;; supprimer l'app les supprime. Voir la <a href="privacy.html">politique de confidentialité</a>.</p>
+</section>
+</div>
+<footer class="wrap">
+  <a href="index.html">Accueil</a> &middot; <a href="privacy.html">Confidentialité</a> &middot;
+  <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">CLUF</a><br><br>
+  &copy; 2026 WayCar
+</footer>
+</body>
+</html>
