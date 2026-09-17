@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WayCar — Privacy</title>
+<meta name="description" content="WayCar’s privacy policy: no account, no third-party libraries, what stays on the phone, what goes out to other drivers, and how to export or erase all of it.">
+<link rel="alternate" hreflang="fr" href="https://lastoneparis.github.io/waycar-nav/privacy.html">
+<link rel="alternate" hreflang="en" href="https://lastoneparis.github.io/waycar-nav/en/privacy.html">
+<link rel="stylesheet" href="../signage.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="gantry">
+  <div class="wrap">
+    <a class="marque" href="index.html"><span class="chev"></span>WayCar</a>
+    <nav aria-label="Main navigation">
+      <ul class="panels">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="routes.html">Routes</a></li>
+        <li><a href="vignettes.html">Vignettes</a></li>
+        <li><a href="charging.html">Charging</a></li>
+        <li><a href="carplay.html">CarPlay</a></li>
+        <li><a href="questions.html">Questions</a></li>
+        <li><a href="changelog.html">Changelog</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+    </nav>
+    <div class="lang" aria-label="Language">
+      <a href="../privacy.html" hreflang="fr" lang="fr">FR</a>
+      <span aria-current="true">EN</span>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+
+<div class="head">
+  <h1>Privacy policy</h1>
+  <p class="stand">WayCar, a navigation application for iPhone. Publisher: Oshi Lab. Last updated: 17 September 2026.</p>
+</div>
+
+<section>
+  <h2>In one sentence</h2>
+  <div class="plate-local">
+    <p class="ink">WayCar has no account, does not identify you and builds no profile of your movements. Your trips stay on your iPhone. What goes out to other drivers is your reports: something that happened to a <em>road</em>, never your live position.</p>
+  </div>
+</section>
+
+<section>
+  <h2>What stays on your phone</h2>
+  <p>All of the following is stored locally, in the app’s private container, and is sent to no server:</p>
+  <ul>
+    <li>Your driver profile: nickname, level, points, badges, contribution counters.</li>
+    <li>Your saved places: Home, Work, favourites. These are the most sensitive data in the app.</li>
+    <li>Your recent destinations, with their dates.</li>
+    <li>The reports you have made, with their positions.</li>
+    <li>Where you parked, and your own note about it.</li>
+    <li>The nicknames you have chosen to hide.</li>
+    <li>The traffic profile learnt from your own trips (a duration factor per time slot).</li>
+    <li>Professional mode, if enabled: tours, recorded trips, zones, vehicles, drivers.</li>
+    <li>Your settings: route preference, map theme, voice, tone, visibility to nearby drivers.</li>
+  </ul>
+  <p>This data is included in your ordinary Apple backups if you back up your iPhone; in that case it is Apple, not us, that holds it encrypted.</p>
+</section>
+
+<section>
+  <h2>What leaves the phone, and why</h2>
+
+  <h3>1. Routing and maps (Apple)</h3>
+  <p>Searching for an address, computing a route, getting traffic and finding out which country a stretch of road is in are Apple services. Those requests carry what is needed to answer — coordinates, a map region, a search string — and nothing that identifies you, since there is no account. They are governed by Apple’s own privacy policy, which we do not control.</p>
+
+  <h3>2. Driver reports</h3>
+  <p>This is the only data WayCar sends to a server we operate. When you report something, the app transmits:</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Field</th><th>Content</th></tr></thead>
+      <tbody>
+        <tr><td><b>Kind</b></td><td>Jam, crash, speed check, roadworks, closure, and so on.</td></tr>
+        <tr><td><b>Position</b></td><td>The report’s position — that is, the piece of road concerned.</td></tr>
+        <tr><td><b>Bearing</b></td><td>The direction of travel, where it is known.</td></tr>
+        <tr><td><b>Time</b></td><td>When it was reported.</td></tr>
+        <tr><td><b>Nickname</b></td><td>The one you chose in the app. You can change it, and it is tied to no account, no address and no device identifier.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>A report expires by itself: anything more than six hours old is no longer kept.</p>
+  <p>In the other direction, to show you what is happening ahead, the app asks the server for reports within about 25&nbsp;km of you. <strong>That request therefore contains your approximate position.</strong> It is sent at most once every 45&nbsp;seconds, and only if you have travelled at least 3&nbsp;km since the last one — in other words, it does not trace your route, it asks “what is around here?”. It carries no nickname, no identifier and no token.</p>
+
+  <h3>3. Drivers around you (no server)</h3>
+  <p>WayCar can show you WayCar drivers a few tens of metres away — the car behind you in a tunnel, where no server can help. That runs over the local network and Bluetooth, device to device, <strong>with no server involved</strong>, and what is broadcast is a nickname, a mood and an <em>approximate</em> position. You can turn the feature off in settings.</p>
+</section>
+
+<section>
+  <h2>What WayCar does not do</h2>
+  <div class="forbid">
+    <p class="ink">No account. No sign-up. No advertising. No ad tracker. <strong>No third-party libraries</strong>: the application depends on no external package, and therefore contains no analytics, measurement or attribution SDK. No in-app purchases, no subscription. No sale of data, to anyone, under any circumstances.</p>
+  </div>
+  <p>WayCar builds no history of your movements on a server, because there is no server that knows who you are. The one server we do operate receives reports attached to roads, and it has no way to tie them to a person.</p>
+</section>
+
+<section>
+  <h2>Location</h2>
+  <p>WayCar uses your position to draw the map, compute the route, guide you turn by turn, show your car on the map and warn you about what has been reported on your road. That is the function of the application.</p>
+  <p>The “Always” permission exists so guidance can continue when the screen is off or you are using another app, and so you can be told on arrival at places you have saved. You can refuse it: WayCar will then work only while it is on screen.</p>
+  <p>You can withdraw any of these permissions at any time in iOS Settings.</p>
+</section>
+
+<section>
+  <h2>Your rights (GDPR)</h2>
+  <p>You are in Europe and the app is written for European drivers; Articles 15, 17 and 20 are exercised directly inside the application, without writing to us:</p>
+  <ul>
+    <li><strong>Access and portability (Art. 15 and 20)</strong> — the export produces a readable JSON file containing everything the app keeps about you on this device. Each section carries a sentence saying what it is, rather than only a key name.</li>
+    <li><strong>Erasure (Art. 17)</strong> — erasure genuinely removes every store listed above, along with your settings, and returns the app to first run. It does not reseed demonstration data in their place.</li>
+  </ul>
+  <p>Both operations are entirely local: there is no server to ask, which is exactly what makes them immediate.</p>
+  <p>For a report you have already sent to other drivers: it expires on its own after six hours. If you want it withdrawn sooner, write to us with the kind, the road and the approximate time.</p>
+</section>
+
+<section>
+  <h2>Children</h2>
+  <p>WayCar is not aimed at children and asks them for nothing. It collects no data that would reveal anybody’s age.</p>
+</section>
+
+<section>
+  <h2>Changes</h2>
+  <p>If this policy changes, the date at the top changes with it, and substantive changes are announced in the <a href="changelog.html">changelog</a>. We will not retroactively rewrite what was promised: a promise the binary contradicts is the worst kind of privacy defect, and the application carries tests whose only job is to stop a text like this one drifting away from the code.</p>
+</section>
+
+<section>
+  <h2>Contact</h2>
+  <div class="plate-local">
+    <p class="ink"><strong>Oshi Lab</strong><br><a href="mailto:contact@oshi-messenger.com">contact@oshi-messenger.com</a></p>
+    <p>See also the <a href="legal.html">legal notice</a>.</p>
+  </div>
+</section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="routes.html">Routes</a>
+      <a href="vignettes.html">Vignettes</a>
+      <a href="charging.html">Charging</a>
+      <a href="carplay.html">CarPlay</a>
+      <a href="questions.html">Questions</a>
+      <a href="changelog.html">Changelog</a>
+      <a href="support.html">Support</a>
+      <a href="legal.html">Legal notice</a>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">EULA</a>
+    </nav>
+    <p class="rights">&copy; 2026 Oshi Lab &middot; <b>contact@oshi-messenger.com</b></p>
+  </div>
+</footer>
+</body>
+</html>

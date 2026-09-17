@@ -4,75 +4,124 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>WayCar — Assistance</title>
-<style>
-:root{--bg:#f4f6f8;--panel:#fff;--ink:#12181f;--dim:#5a6673;--rule:#dfe4ea;--auto:#1b5fa8;--sign:#f2c200}
-@media(prefers-color-scheme:dark){:root{--bg:#0c1116;--panel:#141b22;--ink:#e8edf2;--dim:#94a1ae;--rule:#222b34}}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--ink);font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
-.band{background:var(--auto);color:#fff}
-.band .wrap{padding:10px 22px;font-size:13px;letter-spacing:.04em}
-.wrap{max-width:46rem;margin:0 auto;padding:0 22px 90px}
-header{padding:56px 0 32px}
-h1{font-size:32px;line-height:1.18;letter-spacing:-.02em;font-weight:680}
-.stand{color:var(--dim);font-size:17.5px;margin-top:13px}
-section{padding:36px 0;border-top:1px solid var(--rule)}
-h2{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);font-weight:680;margin-bottom:16px}
-h3{font-size:15.5px;font-weight:660;margin:20px 0 5px}
-p{margin-bottom:12px;color:var(--dim)}
-p.ink{color:var(--ink)}
-.card{background:var(--panel);border:1px solid var(--rule);border-left:4px solid var(--sign);border-radius:0 10px 10px 0;padding:18px 20px}
-.card p:last-child{margin-bottom:0}
-a{color:var(--auto)}
-@media(prefers-color-scheme:dark){a{color:#79b4f2}}
-footer{border-top:1px solid var(--rule);padding-top:24px;color:var(--dim);font-size:13px;text-align:center}
-</style>
+<meta name="description" content="Assistance WayCar : à qui écrire, quoi mettre dans le message, et les pannes courantes — position imprécise, guidage muet, CarPlay absent, plan de recharge surprenant.">
+<link rel="alternate" hreflang="fr" href="https://lastoneparis.github.io/waycar-nav/support.html">
+<link rel="alternate" hreflang="en" href="https://lastoneparis.github.io/waycar-nav/en/support.html">
+<link rel="stylesheet" href="signage.css">
 </head>
 <body>
-<div class="band"><div class="wrap">Assistance WayCar</div></div>
-<div class="wrap">
-<header>
-  <h1>Assistance</h1>
-  <p class="stand">GPS européen &mdash; trafic, radars, vignettes et recharge.</p>
+<a class="skip" href="#main">Aller au contenu</a>
+
+<header class="gantry">
+  <div class="wrap">
+    <a class="marque" href="index.html"><span class="chev"></span>WayCar</a>
+    <nav aria-label="Navigation principale">
+      <ul class="panels">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="itineraires.html">Itinéraires</a></li>
+        <li><a href="vignettes.html">Vignettes</a></li>
+        <li><a href="recharge.html">Recharge</a></li>
+        <li><a href="carplay.html">CarPlay</a></li>
+        <li><a href="questions.html">Questions</a></li>
+        <li><a href="journal.html">Journal</a></li>
+        <li><a href="support.html" aria-current="page">Assistance</a></li>
+      </ul>
+    </nav>
+    <div class="lang" aria-label="Langue">
+      <span aria-current="true">FR</span>
+      <a href="en/support.html" hreflang="en" lang="en">EN</a>
+    </div>
+  </div>
 </header>
+
+<main id="main">
+<div class="wrap">
+
+<div class="head">
+  <h1>Assistance</h1>
+  <p class="stand">Une adresse, une personne au bout, et ce qu’il faut mettre dans le message pour qu’on puisse rejouer votre trajet plutôt que de vous demander trois fois la même chose.</p>
+</div>
 
 <section>
   <h2>Nous écrire</h2>
-  <div class="card">
-    <p class="ink"><b>hugomoriceau@gmail.com</b></p>
-    <p>Précisez la version de l'app (Réglages, en bas de l'écran), votre modèle d'iPhone, et le pays où vous rouliez. Pour un itinéraire discutable, le point de départ et l'arrivée nous permettent de le rejouer.</p>
+  <div class="plate-local">
+    <p class="ink"><strong><a href="mailto:contact@oshi-messenger.com">contact@oshi-messenger.com</a></strong></p>
+    <p>En français ou en anglais. Il n’y a pas de formulaire, pas de numéro de ticket, pas de robot.</p>
   </div>
+  <h3>Ce qui aide vraiment</h3>
+  <ul>
+    <li>La <strong>version de l’app</strong> (Réglages, tout en bas de l’écran) et votre <strong>modèle d’iPhone</strong>.</li>
+    <li>Le <strong>pays</strong> où vous rouliez. Une bonne moitié des comportements de WayCar dépendent du pays, et une réponse donnée sans cette information est souvent fausse.</li>
+    <li>Pour un itinéraire discutable&nbsp;: le <strong>point de départ et l’arrivée</strong>, et l’heure approximative. Cela nous permet de le recalculer nous-mêmes.</li>
+    <li>Pour un problème de guidage vocal&nbsp;: la <strong>langue de l’iPhone</strong>, la voix et le ton choisis.</li>
+    <li>Une capture d’écran vaut souvent dix lignes de description.</li>
+  </ul>
 </section>
 
 <section>
-  <h2>Problèmes courants</h2>
+  <h2>Pannes courantes</h2>
+
   <h3>La position est imprécise ou saute</h3>
-  <p>Réglages iOS &rarr; Confidentialité &rarr; Service de localisation &rarr; WayCar&nbsp;: choisissez «&nbsp;Lorsque l'app est active&nbsp;» au minimum, et activez la Localisation précise. En ville dense, le premier point GPS peut mettre quelques secondes à se fixer.</p>
+  <p>Réglages iOS → Confidentialité et sécurité → Service de localisation → WayCar. Choisissez au minimum «&nbsp;Lorsque l’app est active&nbsp;», et activez <strong>Position exacte</strong>&nbsp;: sans elle, iOS ne donne qu’une zone approximative, ce qui suffit pour la météo mais pas pour un guidage. En ville dense, le premier point peut mettre quelques secondes à se fixer, et un tunnel coupe le GPS pour tout le monde.</p>
+
+  <h3>Le guidage s’arrête quand je quitte l’app</h3>
+  <p>Il faut l’autorisation de localisation en arrière-plan. Même écran que ci-dessus&nbsp;: choisissez «&nbsp;Toujours&nbsp;». Sans elle, WayCar s’interrompt dès qu’il passe en arrière-plan.</p>
 
   <h3>Pas de guidage vocal</h3>
-  <p>Vérifiez le bouton silencieux de l'iPhone et le volume pendant que le guidage parle &mdash; iOS règle le volume vocal séparément de la sonnerie. En Bluetooth, la voiture doit être sur la source téléphone.</p>
+  <p>Vérifiez le bouton silencieux de l’iPhone, puis le volume <em>pendant que le guidage parle</em>&nbsp;: iOS règle le volume des annonces séparément de celui de la sonnerie, et le monter en dehors d’une annonce ne change rien. En Bluetooth, la voiture doit être sur la source téléphone.</p>
 
-  <h3>L'app ne signale pas un radar que je connais</h3>
-  <p>Les bases de radars sont publiques et changent. Signalez-le nous avec la route et le sens de circulation&nbsp;: c'est la façon la plus utile de nous aider. La signalisation sur place fait toujours foi.</p>
+  <h3>L’app ne signale aucun contrôle</h3>
+  <p>Regardez d’abord dans quel pays vous êtes. En <strong>Allemagne</strong> et en <strong>Suisse</strong>, prévenir un conducteur d’un contrôle de vitesse est interdit et WayCar n’affiche rien&nbsp;: ce n’est pas une panne. En France, un contrôle apparaît comme une «&nbsp;zone de danger&nbsp;» et jamais comme une position. Le détail est sur la page <a href="vignettes.html">Vignettes et péages</a>.</p>
 
-  <h3>Le plan de recharge semble faux</h3>
-  <p>Il s'appuie sur votre consommation observée. Sur les premiers trajets, il utilise des valeurs par défaut et se corrige ensuite. Un trajet très différent des précédents (montagne, remorque, grand froid) le fait temporairement dériver.</p>
+  <h3>Le plan de recharge me surprend</h3>
+  <p>Vérifiez d’abord la consommation que vous avez saisie pour votre véhicule&nbsp;: c’est la base du calcul, et WayCar ne l’apprend pas tout seul. Ensuite, sachez qu’il estime l’autoroute environ un tiers plus chère que l’étiquette, garde 10&nbsp;% de réserve et s’arrête à 80&nbsp;%. Par grand froid ou avec un coffre de toit, prévoyez un arrêt de plus. Tout est détaillé sur la page <a href="recharge.html">Recharge</a>.</p>
 
-  <h3>CarPlay n'affiche pas WayCar</h3>
-  <p>Réglages iOS &rarr; Général &rarr; CarPlay &rarr; votre voiture &rarr; Personnaliser, puis ajoutez WayCar. Un câble défectueux est la deuxième cause la plus fréquente.</p>
+  <h3>CarPlay n’affiche pas WayCar</h3>
+  <p>Réglages iOS → Général → CarPlay → votre voiture → Personnaliser, puis ajoutez WayCar à l’écran d’accueil. En filaire, un câble fatigué est la deuxième cause la plus fréquente&nbsp;; essayez-en un autre avant de conclure. Voir la page <a href="carplay.html">CarPlay</a>.</p>
 
-  <h3>Restaurer un achat</h3>
-  <p>Réglages dans l'app &rarr; Restaurer les achats, avec le compte Apple qui a effectué l'achat.</p>
+  <h3>Le clavier est bloqué sur l’écran de la voiture</h3>
+  <p>C’est CarPlay, pas WayCar&nbsp;: la saisie est verrouillée quand la voiture roule. Utilisez le bouton <strong>Destinations</strong>, qui donne vos favoris et vos destinations récentes et fonctionne à n’importe quelle vitesse. Les favoris s’enregistrent depuis l’iPhone, à l’arrêt.</p>
+
+  <h3>Un péage ou une vignette me paraît faux</h3>
+  <p>C’est une estimation, et elle est datée&nbsp;: les régimes et les tarifs changent, et la signalisation sur place fait foi. Si vous avez payé un montant nettement différent, écrivez-nous avec le pays, l’itinéraire et ce que vous avez réellement payé&nbsp;— c’est le retour le plus utile qu’on puisse recevoir sur cette partie de l’app.</p>
+
+  <h3>Je veux tout effacer</h3>
+  <p>Réglages de l’app → vos données → effacer. Cela supprime le profil, les favoris, les destinations récentes, vos signalements, la voiture garée, les conducteurs masqués, les réglages et les données du mode professionnel, puis remet l’app à son premier lancement. Supprimer l’app efface également tout ce qui est local. Voir la <a href="privacy.html">politique de confidentialité</a>.</p>
 </section>
 
 <section>
-  <h2>Vos données</h2>
-  <p>WayCar n'a pas de compte et ne constitue pas de profil de déplacement. Vos trajets restent sur votre iPhone&nbsp;; supprimer l'app les supprime. Voir la <a href="privacy.html">politique de confidentialité</a>.</p>
+  <h2>Signaler un contenu ou un comportement</h2>
+  <p>Les signalements entre conducteurs sont modérés et vous pouvez masquer un pseudo depuis l’app&nbsp;: la liste des pseudos masqués reste sur votre téléphone et n’est envoyée à personne. Pour un abus qui demande notre intervention, écrivez à <a href="mailto:contact@oshi-messenger.com">contact@oshi-messenger.com</a> en indiquant le pseudo, la route et l’heure.</p>
 </section>
+
+<section>
+  <h2>Ce que l’assistance ne peut pas faire</h2>
+  <ul>
+    <li>Retrouver vos données&nbsp;: elles sont sur votre téléphone et nulle part ailleurs. Si vous les effacez sans avoir exporté, elles sont perdues, y compris pour nous.</li>
+    <li>Contester une amende à votre place, ni confirmer qu’un dispositif s’applique à votre véhicule. Adressez-vous à l’autorité concernée.</li>
+    <li>Modifier une base de radars ou de tarifs en temps réel&nbsp;: nous corrigeons dans une mise à jour.</li>
+  </ul>
+</section>
+
 </div>
-<footer class="wrap">
-  <a href="index.html">Accueil</a> &middot; <a href="privacy.html">Confidentialité</a> &middot;
-  <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">CLUF</a><br><br>
-  &copy; 2026 WayCar
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Pied de page">
+      <a href="index.html">Accueil</a>
+      <a href="itineraires.html">Itinéraires</a>
+      <a href="vignettes.html">Vignettes</a>
+      <a href="recharge.html">Recharge</a>
+      <a href="carplay.html">CarPlay</a>
+      <a href="questions.html">Questions</a>
+      <a href="journal.html">Journal</a>
+      <a href="privacy.html">Confidentialité</a>
+      <a href="mentions.html">Mentions légales</a>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">CLUF</a>
+    </nav>
+    <p class="rights">&copy; 2026 Oshi Lab &middot; <b>contact@oshi-messenger.com</b></p>
+  </div>
 </footer>
 </body>
 </html>

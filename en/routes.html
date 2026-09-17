@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WayCar — Routes</title>
+<meta name="description" content="How WayCar ranks routes: fastest, shortest, cheapest, calmest. What “cheapest” actually costs out — per-country tolls, vignettes, energy — and why the gap is shown in minutes and euros before you set off.">
+<link rel="alternate" hreflang="fr" href="https://lastoneparis.github.io/waycar-nav/itineraires.html">
+<link rel="alternate" hreflang="en" href="https://lastoneparis.github.io/waycar-nav/en/routes.html">
+<link rel="stylesheet" href="../signage.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="gantry">
+  <div class="wrap">
+    <a class="marque" href="index.html"><span class="chev"></span>WayCar</a>
+    <nav aria-label="Main navigation">
+      <ul class="panels">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="routes.html" aria-current="page">Routes</a></li>
+        <li><a href="vignettes.html">Vignettes</a></li>
+        <li><a href="charging.html">Charging</a></li>
+        <li><a href="carplay.html">CarPlay</a></li>
+        <li><a href="questions.html">Questions</a></li>
+        <li><a href="changelog.html">Changelog</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+    </nav>
+    <div class="lang" aria-label="Language">
+      <a href="../itineraires.html" hreflang="fr" lang="fr">FR</a>
+      <span aria-current="true">EN</span>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+
+<div class="head">
+  <h1>Four routes, and what each one costs</h1>
+  <p class="stand">Apple hands back a handful of itineraries for the same trip. WayCar decides which one is <em>the</em> one, and shows you what you give up by taking another — in minutes and in euros, before you set off.</p>
+</div>
+
+<section>
+  <h2>The four choices</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Choice</th><th>What decides it</th><th>How a near-tie breaks</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>Fastest</b></td>
+          <td>Duration with live traffic.</td>
+          <td>Nothing to break: that is the criterion itself.</td>
+        </tr>
+        <tr>
+          <td><b>Shortest</b></td>
+          <td>Kilometres driven.</td>
+          <td>Within 2&nbsp;% on distance, the quicker one wins. A route 40&nbsp;m shorter and eleven minutes slower is not “the shortest”, it is a mistake.</td>
+        </tr>
+        <tr>
+          <td><b>Cheapest</b></td>
+          <td>Energy + tolls + vignettes.</td>
+          <td>Within 20&nbsp;cents, the quicker one wins. Twenty cents is not worth half an hour.</td>
+        </tr>
+        <tr>
+          <td><b>Calmest</b></td>
+          <td>Manoeuvres per kilometre.</td>
+          <td>Within 0.15&nbsp;manoeuvres/km, the quicker one wins.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Under the chosen route, one line says why it won: “12&nbsp;min less than the alternative”, “about €6.40 saved”, “0.8 manoeuvres/km instead of 2.1”. When the gap is too small to deserve a sentence, no sentence is written.</p>
+</section>
+
+<section>
+  <h2>Calmest, and why it exists</h2>
+  <p>This is the concrete answer to the most common complaint about this kind of app: being sent down residential side streets, past a school, to shave ninety seconds. The criterion is manoeuvres per kilometre. A motorway run is well under 1; a route threaded through housing estates is several. The figure is shown, so you can compare it yourself.</p>
+</section>
+
+<section>
+  <h2>What “cheapest” actually costs out</h2>
+  <p>A route’s cost is the sum of three things, and each is worked out separately because they do not obey the same rules.</p>
+
+  <h3>1. Energy</h3>
+  <p>Your vehicle’s consumption, adjusted for the urban share of the trip, multiplied by the distance and by the price you entered for a litre or a kWh. The adjustment does not have the same sign for both drivetrains: a combustion engine suffers from stop-and-go and drinks more in town, while an electric car recovers energy braking and uses <em>less</em>. Both corrections are applied, each in its own direction.</p>
+
+  <h3>2. Tolls, country by country</h3>
+  <p>Europe charges for its motorways in three different ways and the difference is real money. An earlier version of the app applied one average French rate to every country: on a Munich to Milan run — German motorway free, Austrian vignette, Brenner toll, Italian autostrada — the estimate came out roughly a third under, and never mentioned that the driver is legally required to buy something before crossing.</p>
+  <p>Today the route is split into per-country legs and each country is charged under its own regime. The detail is on the <a href="vignettes.html">Vignettes and tolls</a> page.</p>
+
+  <h3>3. Vignettes</h3>
+  <p>A vignette is a flat cost with nothing to do with distance, and it is a <em>legal requirement</em>. So it is not folded silently into a total: it is listed by country, with its price, and counted once per country however many times the route dips into it.</p>
+</section>
+
+<section>
+  <h2>How WayCar knows which countries you cross</h2>
+  <p>Apple will not say which countries a route line passes through. So WayCar samples the line — by <em>distance</em> rather than by vertex, because vertices are thick around junctions and sparse on a motorway, and every-nth-vertex would spend all its samples in towns and miss whole countries — then reverse-geocodes each sample for its country code.</p>
+  <div class="caution">
+    <span class="tag">The rule of silence</span>
+    <p class="ink">When a sample comes back unplaced, WayCar only fills the gap where there is evidence on <em>both</em> sides. A gap at either end of the route is left empty.</p>
+    <p>That is not fastidiousness. On the Swiss corridor of a Munich–Milan run, Italy is 49&nbsp;km out of 495: a single sample. Let a trailing gap take its neighbour’s code and those 49&nbsp;km become Switzerland — a country the driver is not in, carrying a €42 vignette they do not need. Past the last placed sample there is no evidence, and the honest answer to no evidence is silence: those kilometres are attributed to nobody rather than to the wrong country.</p>
+  </div>
+</section>
+
+<section>
+  <h2>What stays an estimate, and says so</h2>
+  <p>Apple says <em>whether</em> a route has tolls, never which kilometres are tolled or what they cost. So WayCar assumes roughly three quarters of the distance driven in a per-kilometre country is on tolled sections, and applies that country’s published average rate. The result is labelled an estimate in the app, and it is one.</p>
+  <p>Where the route has no tolls at all, a per-kilometre country costs nothing: France has plenty of free trunk roads, and a route that uses them is not charged.</p>
+</section>
+
+<section>
+  <h2>“Avoid tolls” is an instruction, not a preference</h2>
+  <p>When you tick “avoid tolls” or “avoid motorways”, the request is passed to Apple — which is entitled not to honour it. For a long time nothing checked the answer: if the alternates came back mixed, the app picked the quickest, tolls and all, while a toll-free route sat one row below. In France or Italy that quietly costs money.</p>
+  <p>Now the list is <em>partitioned</em> before it is ranked: no route that honours your instruction can be placed below one that does not. The others stay in the list and stay selectable, with the price of obeying shown next to them.</p>
+</section>
+
+<section>
+  <h2>Arrival time: a window, not a number</h2>
+  <p>Apple’s arrival time describes the traffic right now. WayCar adds what it has learnt from your own trips: for each slot (day of the week, hour), a multiplier between the free-flow duration and the duration you actually took. The model starts from a European baseline — the morning peak around 8, the evening peak around 18, much flatter weekends — and bends towards your habits as you drive. One odd trip cannot swing a slot; fifty will.</p>
+  <p>What you see is therefore a window with a reason attached: <em>traffic expected to worsen</em>, <em>traffic expected to ease</em>, <em>n reports on the route</em>, or <em>traffic as usual</em>. Confidence starts at 55&nbsp;% for a slot with no history and rises towards 95&nbsp;% once it has some.</p>
+</section>
+
+<section>
+  <h2>While you are driving</h2>
+  <ul>
+    <li><strong>The exit number comes first.</strong> Apple writes “Take exit 12 towards Lyon”. At 130&nbsp;km/h the only thing you are hunting for on the sign is the 12 — and it was buried mid-sentence, unstressed, said once. It now goes to the front. When the number cannot be read out of the instruction, WayCar says the original sentence rather than inventing a number.</li>
+    <li><strong>Recalculation.</strong> The route is refreshed during the trip; the line distinguishes the road already driven, the road ahead, and stretches other drivers report at a standstill.</li>
+    <li><strong>The break.</strong> After two hours at the wheel, WayCar suggests stopping and shows the services still ahead of you. A fifteen-minute stop resets the clock; a toll barrier or a red light does not. This is advice, not the European drivers’ hours regulation — that governs vehicles over 3.5&nbsp;tonnes and coaches, not cars, and claiming otherwise would be an invented legal obligation.</li>
+    <li><strong>Ferries.</strong> A crossing inside the route is spotted and flagged on the route card: it has to be booked, it costs, and it puts part of the journey on a boat.</li>
+    <li><strong>On arrival.</strong> Car parks within 600&nbsp;m, three at most. WayCar does not claim to know whether they have space or what they charge: Apple’s places database knows a car park is there, and no more than that.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>On screen</h2>
+  <div class="shots">
+    <figure>
+      <img src="../ecrans/frontiere.png" alt="WayCar route card for Paris to Stuttgart: four route choices, the time gap, a low-emission zone line, the predicted arrival window, and the cost in euros, CO₂ and litres." width="290" height="630" loading="lazy">
+      <figcaption><b>Before departure.</b> 624&nbsp;km to Stuttgart. The four choices, “18&nbsp;min less than the alternative”, the low-emission schemes of Paris and Stuttgart named individually, the predicted arrival window, and the trip cost in euros, CO₂ and litres.</figcaption>
+    </figure>
+    <figure>
+      <img src="../ecrans/guidage.png" alt="WayCar motorway guidance: an instruction to keep right towards Troyes and Metz-Nancy, a 130 speed panel, the current speed of 118 km/h, arrival time and distance remaining." width="290" height="630" loading="lazy">
+      <figcaption><b>On the way.</b> The instruction, the destinations exactly as the sign writes them, and on the left the country’s statutory maximum (130) beside the actual speed (118) — not an invented road limit.</figcaption>
+    </figure>
+    <figure>
+      <img src="../ecrans/arrivee.png" alt="WayCar arrival card at Beaune: distance, duration, average speed, cost, CO₂, points, where the car was left, and two nearby car parks." width="290" height="630" loading="lazy">
+      <figcaption><b>On arrival.</b> What the trip actually cost, where the car was left (“level −2, bay 118”), and two car parks nearby with their distance <em>as the crow flies</em> — never presented as a walking distance.</figcaption>
+    </figure>
+  </div>
+  <p>The app is shown in French in these captures; it ships in five languages.</p>
+</section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="vignettes.html">Vignettes</a>
+      <a href="charging.html">Charging</a>
+      <a href="carplay.html">CarPlay</a>
+      <a href="questions.html">Questions</a>
+      <a href="changelog.html">Changelog</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="legal.html">Legal notice</a>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">EULA</a>
+    </nav>
+    <p class="rights">&copy; 2026 Oshi Lab &middot; <b>contact@oshi-messenger.com</b></p>
+  </div>
+</footer>
+</body>
+</html>

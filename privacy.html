@@ -4,78 +4,158 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>WayCar — Confidentialité</title>
-<style>
-:root{--bg:#f4f6f8;--panel:#fff;--ink:#12181f;--dim:#5a6673;--rule:#dfe4ea;--auto:#1b5fa8;--sign:#f2c200}
-@media(prefers-color-scheme:dark){:root{--bg:#0c1116;--panel:#141b22;--ink:#e8edf2;--dim:#94a1ae;--rule:#222b34}}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--ink);font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
-.band{background:var(--auto);color:#fff}
-.band .wrap{padding:10px 22px;font-size:13px;letter-spacing:.04em}
-.wrap{max-width:46rem;margin:0 auto;padding:0 22px 90px}
-header{padding:56px 0 32px}
-h1{font-size:32px;line-height:1.18;letter-spacing:-.02em;font-weight:680}
-.stand{color:var(--dim);font-size:17.5px;margin-top:13px}
-section{padding:36px 0;border-top:1px solid var(--rule)}
-h2{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);font-weight:680;margin-bottom:16px}
-h3{font-size:15.5px;font-weight:660;margin:20px 0 5px}
-p{margin-bottom:12px;color:var(--dim)}
-p.ink{color:var(--ink)}
-.card{background:var(--panel);border:1px solid var(--rule);border-left:4px solid var(--sign);border-radius:0 10px 10px 0;padding:18px 20px}
-.card p:last-child{margin-bottom:0}
-a{color:var(--auto)}
-@media(prefers-color-scheme:dark){a{color:#79b4f2}}
-footer{border-top:1px solid var(--rule);padding-top:24px;color:var(--dim);font-size:13px;text-align:center}
-</style>
+<meta name="description" content="Politique de confidentialité de WayCar : pas de compte, aucune bibliothèque tierce, ce qui reste sur le téléphone, ce qui part vers les autres conducteurs, et comment tout exporter ou tout effacer.">
+<link rel="alternate" hreflang="fr" href="https://lastoneparis.github.io/waycar-nav/privacy.html">
+<link rel="alternate" hreflang="en" href="https://lastoneparis.github.io/waycar-nav/en/privacy.html">
+<link rel="stylesheet" href="signage.css">
 </head>
 <body>
-<div class="band"><div class="wrap">Confidentialité WayCar</div></div>
-<div class="wrap">
-<header>
-  <h1>Politique de confidentialité</h1>
-  <p class="stand">Dernière mise à jour&nbsp;: 10 septembre 2026</p>
+<a class="skip" href="#main">Aller au contenu</a>
+
+<header class="gantry">
+  <div class="wrap">
+    <a class="marque" href="index.html"><span class="chev"></span>WayCar</a>
+    <nav aria-label="Navigation principale">
+      <ul class="panels">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="itineraires.html">Itinéraires</a></li>
+        <li><a href="vignettes.html">Vignettes</a></li>
+        <li><a href="recharge.html">Recharge</a></li>
+        <li><a href="carplay.html">CarPlay</a></li>
+        <li><a href="questions.html">Questions</a></li>
+        <li><a href="journal.html">Journal</a></li>
+        <li><a href="support.html">Assistance</a></li>
+      </ul>
+    </nav>
+    <div class="lang" aria-label="Langue">
+      <span aria-current="true">FR</span>
+      <a href="en/privacy.html" hreflang="en" lang="en">EN</a>
+    </div>
+  </div>
 </header>
 
+<main id="main">
+<div class="wrap">
+
+<div class="head">
+  <h1>Politique de confidentialité</h1>
+  <p class="stand">WayCar, application de navigation pour iPhone. Éditeur&nbsp;: Oshi Lab. Dernière mise à jour&nbsp;: 17 septembre 2026.</p>
+</div>
+
 <section>
-  <h2>En résumé</h2>
-  <div class="card">
-    <p class="ink">WayCar n'a pas de compte, ne vous identifie pas, et ne construit aucun profil de déplacement. Vos trajets restent sur votre iPhone.</p>
+  <h2>En une phrase</h2>
+  <div class="plate-local">
+    <p class="ink">WayCar n’a pas de compte, ne vous identifie pas et ne construit aucun profil de déplacement. Vos trajets restent sur votre iPhone. Ce qui part vers les autres conducteurs, ce sont vos signalements&nbsp;: un événement arrivé à une <em>route</em>, jamais votre position en direct.</p>
   </div>
 </section>
 
 <section>
-  <h2>Localisation</h2>
-  <p>WayCar utilise votre position pour afficher la carte, calculer l'itinéraire et vous guider &mdash; c'est la fonction même de l'app. La position est traitée sur l'appareil et pour le calcul d'itinéraire en cours&nbsp;; elle n'est associée à aucun identifiant de compte, puisqu'il n'y a pas de compte.</p>
-  <p>L'historique de vos trajets, si vous le conservez, est stocké localement sur l'iPhone et inclus dans vos sauvegardes Apple habituelles.</p>
+  <h2>Ce qui reste sur votre téléphone</h2>
+  <p>Tout ce qui suit est stocké localement, dans l’espace privé de l’application, et n’est envoyé à aucun serveur&nbsp;:</p>
+  <ul>
+    <li>Votre profil de conducteur&nbsp;: pseudo, niveau, points, badges, compteurs de contribution.</li>
+    <li>Vos lieux enregistrés&nbsp;: Domicile, Travail, favoris. Ce sont les données les plus sensibles de l’app.</li>
+    <li>Vos destinations récentes, avec leur date.</li>
+    <li>Les signalements que vous avez faits, avec leur position.</li>
+    <li>La position de votre voiture garée, et votre note à son sujet.</li>
+    <li>Les pseudos que vous avez choisi de masquer.</li>
+    <li>Le profil de trafic appris de vos propres trajets (un facteur de durée par créneau horaire).</li>
+    <li>Le mode professionnel, s’il est activé&nbsp;: tournées, trajets enregistrés, zones, véhicules, conducteurs.</li>
+    <li>Vos réglages&nbsp;: préférence d’itinéraire, thème de carte, voix, ton, visibilité aux conducteurs voisins.</li>
+  </ul>
+  <p>Ces données sont incluses dans vos sauvegardes Apple habituelles si vous sauvegardez votre iPhone&nbsp;; c’est alors Apple, et non nous, qui les détient chiffrées.</p>
 </section>
 
 <section>
-  <h2>Ce que nous ne faisons pas</h2>
-  <p>Pas de compte, pas d'inscription, pas de publicité, pas de traceurs publicitaires, pas de SDK d'analyse tiers, et aucune revente de données &mdash; à quiconque, dans aucune circonstance.</p>
+  <h2>Ce qui sort du téléphone, et pourquoi</h2>
+
+  <h3>1. Le calcul d’itinéraire et la carte (Apple)</h3>
+  <p>Chercher une adresse, calculer un itinéraire, obtenir le trafic et savoir dans quel pays passe une portion de route sont des services d’Apple. Ces requêtes transportent ce qu’il faut pour répondre — des coordonnées, une zone de carte, un texte de recherche — et rien qui vous identifie, puisqu’il n’y a pas de compte. Elles sont régies par la politique de confidentialité d’Apple, que nous ne contrôlons pas.</p>
+
+  <h3>2. Les signalements entre conducteurs</h3>
+  <p>C’est la seule donnée que WayCar envoie à un serveur que nous exploitons. Quand vous signalez un événement, l’app transmet&nbsp;:</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Champ</th><th>Contenu</th></tr></thead>
+      <tbody>
+        <tr><td><b>Type</b></td><td>Bouchon, accident, radar, travaux, route fermée, etc.</td></tr>
+        <tr><td><b>Position</b></td><td>Celle du signalement, c’est-à-dire l’endroit de la route concerné.</td></tr>
+        <tr><td><b>Cap</b></td><td>Le sens de circulation, quand il est connu.</td></tr>
+        <tr><td><b>Heure</b></td><td>Le moment du signalement.</td></tr>
+        <tr><td><b>Pseudo</b></td><td>Celui que vous avez choisi dans l’app. Vous pouvez le changer, et il n’est relié à aucun compte, aucune adresse et aucun identifiant d’appareil.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Un signalement expire de lui-même&nbsp;: un rapport de plus de six heures n’est plus retenu.</p>
+  <p>Dans l’autre sens, pour vous montrer ce qui se passe devant vous, l’app demande au serveur les signalements dans un rayon d’environ 25&nbsp;km autour de vous. <strong>Cette requête contient donc votre position approximative.</strong> Elle est envoyée au plus une fois toutes les 45&nbsp;secondes, et seulement si vous avez parcouru au moins 3&nbsp;km depuis la précédente — autrement dit, elle ne trace pas votre route, elle demande «&nbsp;qu’y a-t-il par ici&nbsp;?&nbsp;». Elle ne porte ni pseudo, ni identifiant, ni jeton.</p>
+
+  <h3>3. Les conducteurs autour de vous (pas de serveur)</h3>
+  <p>WayCar peut vous montrer les conducteurs WayCar à quelques dizaines de mètres — la voiture derrière vous dans un tunnel, où aucun serveur ne peut aider. Cela passe par le réseau local et le Bluetooth, d’appareil à appareil, <strong>sans serveur</strong>, et ce qui est diffusé est un pseudo, une humeur et une position <em>approchée</em>. Vous pouvez couper cette fonction dans les réglages.</p>
 </section>
 
 <section>
-  <h2>Services nécessaires au fonctionnement</h2>
-  <p>Le calcul d'itinéraire, le trafic en direct et les données de cartographie nécessitent une requête réseau. Ces requêtes transportent ce qu'il faut pour répondre (points de départ et d'arrivée, zone de carte), et rien qui vous identifie personnellement.</p>
+  <h2>Ce que WayCar ne fait pas</h2>
+  <div class="forbid">
+    <p class="ink">Pas de compte. Pas d’inscription. Pas de publicité. Pas de traceur publicitaire. <strong>Aucune bibliothèque tierce</strong>&nbsp;: l’application ne dépend d’aucun paquet externe, et ne contient donc aucun SDK d’analyse, de mesure d’audience ou d’attribution. Aucun achat intégré, aucun abonnement. Aucune revente de données, à quiconque, dans aucune circonstance.</p>
+  </div>
+  <p>WayCar ne construit pas d’historique de vos déplacements sur un serveur, parce qu’il n’y a pas de serveur qui vous connaisse. Le seul serveur que nous exploitons reçoit des signalements attachés à des routes, et il ne sait pas les relier à une personne.</p>
 </section>
 
 <section>
-  <h2>Achats</h2>
-  <p>Les achats intégrés sont traités entièrement par Apple. Nous ne voyons jamais vos moyens de paiement.</p>
+  <h2>La localisation</h2>
+  <p>WayCar utilise votre position pour afficher la carte, calculer l’itinéraire, vous guider virage par virage, vous montrer votre voiture sur la carte et vous prévenir de ce qui est signalé sur votre route. C’est la fonction même de l’application.</p>
+  <p>L’autorisation «&nbsp;Toujours&nbsp;» sert à continuer le guidage quand l’écran est éteint ou que vous utilisez une autre application, et à vous prévenir à l’arrivée sur les lieux que vous avez enregistrés. Vous pouvez la refuser&nbsp;: WayCar fonctionne alors uniquement quand il est à l’écran.</p>
+  <p>Vous pouvez retirer n’importe laquelle de ces autorisations à tout moment dans les Réglages iOS.</p>
 </section>
 
 <section>
-  <h2>Vos droits</h2>
-  <p>Nous ne détenons aucune donnée personnelle vous concernant sur un serveur&nbsp;: il n'y a donc rien à exporter ni à effacer de notre côté. Supprimer l'app efface l'ensemble des données locales. Pour toute question relative au RGPD, écrivez-nous.</p>
+  <h2>Vos droits (RGPD)</h2>
+  <p>Vous êtes en Europe et l’app est écrite pour des conducteurs européens&nbsp;; les articles 15, 17 et 20 s’exercent directement dans l’application, sans nous écrire&nbsp;:</p>
+  <ul>
+    <li><strong>Accès et portabilité (art. 15 et 20)</strong>&nbsp;— l’export produit un fichier JSON lisible contenant tout ce que l’app conserve à votre sujet sur cet appareil. Chaque section est accompagnée d’une phrase expliquant ce qu’elle est, plutôt que d’un simple nom de clé.</li>
+    <li><strong>Effacement (art. 17)</strong>&nbsp;— l’effacement supprime réellement chacun des stockages listés plus haut, ainsi que vos réglages, et remet l’app à son premier lancement. Il ne vous réinjecte pas de données de démonstration à la place.</li>
+  </ul>
+  <p>Ces deux opérations sont entièrement locales&nbsp;: il n’y a pas de serveur à qui demander, et c’est précisément ce qui les rend immédiates.</p>
+  <p>Pour un signalement que vous avez émis et qui est déjà parti vers les autres conducteurs&nbsp;: il expire tout seul au bout de six heures. Si vous voulez qu’il soit retiré avant, écrivez-nous avec le type, la route et l’heure approximative.</p>
+</section>
+
+<section>
+  <h2>Les enfants</h2>
+  <p>WayCar n’est pas destiné aux enfants et ne leur demande rien. Il ne collecte aucune donnée permettant de connaître l’âge de qui que ce soit.</p>
+</section>
+
+<section>
+  <h2>Modifications</h2>
+  <p>Si cette politique change, la date en haut de page change avec elle, et les modifications substantielles sont annoncées dans le <a href="journal.html">journal des versions</a>. Nous ne modifierons pas rétroactivement ce qui a été promis&nbsp;: une promesse contredite par le binaire est le pire défaut de confidentialité qui soit, et l’application contient des tests dont le seul rôle est d’empêcher un texte comme celui-ci de dériver par rapport au code.</p>
 </section>
 
 <section>
   <h2>Contact</h2>
-  <p class="ink"><b>WayCar &mdash; hugomoriceau@gmail.com</b></p>
+  <div class="plate-local">
+    <p class="ink"><strong>Oshi Lab</strong><br><a href="mailto:contact@oshi-messenger.com">contact@oshi-messenger.com</a></p>
+    <p>Voir aussi les <a href="mentions.html">mentions légales</a>.</p>
+  </div>
 </section>
+
 </div>
-<footer class="wrap">
-  <a href="index.html">Accueil</a> &middot; <a href="support.html">Assistance</a><br><br>
-  &copy; 2026 WayCar
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Pied de page">
+      <a href="index.html">Accueil</a>
+      <a href="itineraires.html">Itinéraires</a>
+      <a href="vignettes.html">Vignettes</a>
+      <a href="recharge.html">Recharge</a>
+      <a href="carplay.html">CarPlay</a>
+      <a href="questions.html">Questions</a>
+      <a href="journal.html">Journal</a>
+      <a href="support.html">Assistance</a>
+      <a href="mentions.html">Mentions légales</a>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">CLUF</a>
+    </nav>
+    <p class="rights">&copy; 2026 Oshi Lab &middot; <b>contact@oshi-messenger.com</b></p>
+  </div>
 </footer>
 </body>
 </html>

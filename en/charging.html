@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WayCar — Electric charging</title>
+<meta name="description" content="How WayCar plans charging: consumption estimated at the road’s real pace rather than the label’s, a 10 % reserve, 80 % charges, 2.5 km of detour at most — and everything the estimate cannot know.">
+<link rel="alternate" hreflang="fr" href="https://lastoneparis.github.io/waycar-nav/recharge.html">
+<link rel="alternate" hreflang="en" href="https://lastoneparis.github.io/waycar-nav/en/charging.html">
+<link rel="stylesheet" href="../signage.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="gantry">
+  <div class="wrap">
+    <a class="marque" href="index.html"><span class="chev"></span>WayCar</a>
+    <nav aria-label="Main navigation">
+      <ul class="panels">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="routes.html">Routes</a></li>
+        <li><a href="vignettes.html">Vignettes</a></li>
+        <li><a href="charging.html" aria-current="page">Charging</a></li>
+        <li><a href="carplay.html">CarPlay</a></li>
+        <li><a href="questions.html">Questions</a></li>
+        <li><a href="changelog.html">Changelog</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+    </nav>
+    <div class="lang" aria-label="Language">
+      <a href="../recharge.html" hreflang="fr" lang="fr">FR</a>
+      <span aria-current="true">EN</span>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+
+<div class="head">
+  <h1>A charging plan at the road’s real pace</h1>
+  <p class="stand">A motorway is the worst case for an electric car, and most charging plans price it at the label. Here is exactly what WayCar computes, and what it cannot know.</p>
+</div>
+
+<section>
+  <h2>The original defect</h2>
+  <p>The charging plan was built on the vehicle’s stated figure, adjusted only for the share of town driving. That share is a real effect and the sign was right — an electric car does <em>better</em> than its label in town, because it recovers energy braking. But the other end was missing entirely, and it is the end that matters: a motorway run is the worst case, and the model priced it at the label.</p>
+  <p>On a Paris to Marseille plan that is about a third of the consumption unaccounted for. The app said “arriving at 20&nbsp;%” for a car that would have arrived at nothing.</p>
+</section>
+
+<section>
+  <h2>Where the number comes from</h2>
+  <p>Energy per kilometre is dominated by two terms. Aerodynamic drag is a force proportional to the square of speed, so the energy it costs <em>per kilometre</em> also goes as v². Rolling resistance is roughly constant per kilometre. Consumption per kilometre therefore has the shape <code>R + K·v²</code>, and the whole model is that shape normalised so it reproduces the manufacturer’s stated figure at around 90&nbsp;km/h — the pace at which a real car does roughly what its label says.</p>
+  <p>The curvature <code>K</code> is set so that a steady 130 costs about 35&nbsp;% more than a steady 90, which is what published real-world figures show across the European fleet. The resulting factor is clamped between <strong>0.85</strong> and <strong>1.55</strong>: below the floor the car is crawling and cabin heating dominates in a way this shape does not describe; above the ceiling no European limit applies and the extrapolation stops being evidence.</p>
+  <div class="caution">
+    <span class="tag">What this is, and is not</span>
+    <p class="ink">It is a <strong>model</strong>, not a measurement of your own car. It cannot know about a roof box, a headwind, a full boot or a cold battery.</p>
+    <p>And this needs saying plainly: WayCar does <em>not</em> learn your real consumption trip by trip. The starting figure remains the one you entered for your vehicle; what WayCar adjusts is the pace of the trip ahead. If the figure you typed is optimistic, so is the plan. Correct it in the vehicle settings — that is the only lever that really moves the estimate.</p>
+  </div>
+  <p>What WayCar <em>does</em> learn is your <em>durations</em>: the traffic profile per time slot bends towards your habits as you drive, and arrival times get better. That changes the arrival window, not the consumption.</p>
+</section>
+
+<section>
+  <h2>The three rules of the plan</h2>
+  <ul class="grid">
+    <li><b>The reserve: 10&nbsp;%</b>The plan never lets the battery fall below 10&nbsp;%, on any leg, including the last one into the destination. It is the margin a driver would keep for themselves, and it is also what absorbs everything the model cannot describe: motorway speed, cold, a full car, a roof box.</li>
+    <li><b>The charge: 80&nbsp;%</b>Past 80&nbsp;%, charging is slow on every fast charger built to date. A plan that fills to 100&nbsp;% at every stop is a plan that wastes your afternoon.</li>
+    <li><b>The detour: 2.5&nbsp;km</b>A charger further than that from the road is not on the way, whatever it would save. And a detour counts <em>twice</em>: you come back to where you left the road.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>How the stops are chosen</h2>
+  <p>Two objectives, and their order is the whole point. A stop costs half an hour, so the plan takes as few as it can. Between two chargers that leave the same number of stops still to make, it takes the one nearest the road.</p>
+  <p>The non-obvious part: a candidate charger’s cost is <strong>not</strong> its detour, it is the number of stops the <em>rest</em> of the trip will need once you have charged there. Picking the shortest detour first buys two kilometres of driving at the price of a whole extra stop, whenever the nearer charger falls just short of what the following leg needed. Half an hour for two kilometres.</p>
+  <div class="plate-local">
+    <p class="ink">Paris to Marseille in a 57&nbsp;kWh car comes out at <strong>three stops and about three hundred metres of detour in total</strong>. The same trip, picking chargers by shortest detour, came out at four.</p>
+  </div>
+  <p>With the stop count tied, the least driving wins; tied again, the one furthest along the route.</p>
+</section>
+
+<section>
+  <h2>When it does not go through</h2>
+  <p>If there is a stretch of the route longer than the car’s usable range with nothing on it, WayCar says so: <em>this trip cannot be made with the chargers found, from kilometre X</em>. It does not paper over it with a stop that would arrive at 3&nbsp;%. And the kilometre reported is where the gap actually starts, not kilometre zero.</p>
+</section>
+
+<section>
+  <h2>What WayCar asks you, and when</h2>
+  <p>iOS gives no access to any car’s state of charge. WayCar cannot read it, so it asks — but only when the answer changes something, which means when the trip exceeds roughly 90&nbsp;% of the vehicle’s full range. On a short run any plausible level covers it and the question would be noise; on a long one there is no plan at all without it.</p>
+</section>
+
+<section>
+  <h2>What the plan does not know: the full list</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>What it is</th><th>Why WayCar cannot know it</th><th>What it does to the plan</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>Hard cold</b></td>
+          <td>The model describes drag and rolling resistance, not cabin heating or battery preconditioning.</td>
+          <td>In hard cold an electric car uses noticeably more and charges more slowly. The 10&nbsp;% reserve does not absorb all of it: plan an extra stop, and do not start the final leg at the edge of the plan.</td>
+        </tr>
+        <tr>
+          <td><b>Load and a roof box</b></td>
+          <td>Nothing declares them to the app.</td>
+          <td>A roof box damages aerodynamics exactly where the model is most sensitive — at motorway speed. The plan will be optimistic.</td>
+        </tr>
+        <tr>
+          <td><b>Wind and terrain</b></td>
+          <td>Neither enters the calculation.</td>
+          <td>A pass or a sustained headwind widens the gap; a long descent closes part of it.</td>
+        </tr>
+        <tr>
+          <td><b>Your car’s charging curve</b></td>
+          <td>The plan reasons in states of charge, not minutes: it aims for 80&nbsp;% because that is where every curve falls away, without modelling yours.</td>
+          <td>Actual stop durations depend on your vehicle and the charger’s power. The plan tells you <em>where</em> and <em>at what level</em>, not exactly how many minutes.</td>
+        </tr>
+        <tr>
+          <td><b>The charger’s real power</b></td>
+          <td>Not reliably published in the places data the app has.</td>
+          <td>A slow charger lengthens a stop without changing how many stops there are.</td>
+        </tr>
+        <tr>
+          <td><b>Opening hours</b></td>
+          <td>Apple publishes no opening hours for a place: name, phone number, web page and category, and that is all.</td>
+          <td>WayCar <strong>cannot</strong> verify that a charger is open, and says so instead of implying it checked. It gives you the phone number and the page so you can check.</td>
+        </tr>
+        <tr>
+          <td><b>Whether it is free, broken or compatible</b></td>
+          <td>None of that is in the available data.</td>
+          <td>Keep a fallback in mind on the tight legs.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>On screen</h2>
+  <figure>
+    <img src="../ecrans/recharge.png" alt="WayCar charging plan for 777 km to Marseille: three charging stops listed with the kilometre, the station name, and the state of charge on arrival and on leaving." width="290" height="630" loading="lazy">
+    <figcaption>Real capture: 777&nbsp;km to Marseille. Three stops, each with its kilometre along the route, its state of charge on arrival and on leaving, and a note that opening hours cannot be verified. The app is shown in French here; it ships in five languages.</figcaption>
+  </figure>
+</section>
+
+<section>
+  <h2>And for a combustion car</h2>
+  <p>The same range reasoning applies: WayCar works out how many fuel stops a trip needs from what the car holds and what it uses, with the same 10&nbsp;% reserve. The difference is practical: a filling station is five minutes off any motorway, while a charge takes half an hour and has to be planned. That is why the detailed plan exists for electric cars and not for the rest.</p>
+  <p>Worth noting in the other direction: on the cost calculation, an urban share <em>increases</em> a combustion engine’s consumption by up to about 28&nbsp;% and <em>reduces</em> an electric car’s by about 6&nbsp;%. Both corrections exist, each in its own direction.</p>
+</section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="routes.html">Routes</a>
+      <a href="vignettes.html">Vignettes</a>
+      <a href="carplay.html">CarPlay</a>
+      <a href="questions.html">Questions</a>
+      <a href="changelog.html">Changelog</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="legal.html">Legal notice</a>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">EULA</a>
+    </nav>
+    <p class="rights">&copy; 2026 Oshi Lab &middot; <b>contact@oshi-messenger.com</b></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WayCar — Les itinéraires</title>
+<meta name="description" content="Comment WayCar classe les itinéraires : rapide, court, économique, calme. Ce que « le moins cher » chiffre réellement — péages par pays, vignettes, énergie — et pourquoi l’écart est affiché en minutes et en euros avant de partir.">
+<link rel="alternate" hreflang="fr" href="https://lastoneparis.github.io/waycar-nav/itineraires.html">
+<link rel="alternate" hreflang="en" href="https://lastoneparis.github.io/waycar-nav/en/routes.html">
+<link rel="stylesheet" href="signage.css">
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+
+<header class="gantry">
+  <div class="wrap">
+    <a class="marque" href="index.html"><span class="chev"></span>WayCar</a>
+    <nav aria-label="Navigation principale">
+      <ul class="panels">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="itineraires.html" aria-current="page">Itinéraires</a></li>
+        <li><a href="vignettes.html">Vignettes</a></li>
+        <li><a href="recharge.html">Recharge</a></li>
+        <li><a href="carplay.html">CarPlay</a></li>
+        <li><a href="questions.html">Questions</a></li>
+        <li><a href="journal.html">Journal</a></li>
+        <li><a href="support.html">Assistance</a></li>
+      </ul>
+    </nav>
+    <div class="lang" aria-label="Langue">
+      <span aria-current="true">FR</span>
+      <a href="en/routes.html" hreflang="en" lang="en">EN</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+
+<div class="head">
+  <h1>Quatre itinéraires, et ce que chacun coûte</h1>
+  <p class="stand">Apple renvoie plusieurs itinéraires pour un même trajet. WayCar décide lequel est <em>le</em> bon, et vous montre ce que vous perdez à prendre un autre&nbsp;— en minutes et en euros, avant de partir.</p>
+</div>
+
+<section>
+  <h2>Les quatre choix</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Choix</th><th>Ce qui décide</th><th>L’égalité se tranche…</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>Le plus rapide</b></td>
+          <td>La durée avec le trafic en direct.</td>
+          <td>Rien à trancher&nbsp;: c’est le critère lui-même.</td>
+        </tr>
+        <tr>
+          <td><b>Le plus court</b></td>
+          <td>Les kilomètres parcourus.</td>
+          <td>À moins de 2&nbsp;% d’écart de distance, le plus rapide gagne. Un itinéraire 40&nbsp;m plus court et onze minutes plus lent n’est pas «&nbsp;le plus court&nbsp;», c’est une erreur.</td>
+        </tr>
+        <tr>
+          <td><b>Le plus économique</b></td>
+          <td>Énergie + péages + vignettes.</td>
+          <td>À moins de 20&nbsp;centimes d’écart, le plus rapide gagne. Vingt centimes ne valent pas une demi-heure.</td>
+        </tr>
+        <tr>
+          <td><b>Le plus calme</b></td>
+          <td>Le nombre de manœuvres par kilomètre.</td>
+          <td>À moins de 0,15&nbsp;manœuvre/km d’écart, le plus rapide gagne.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Sous l’itinéraire retenu, une ligne dit pourquoi&nbsp;: «&nbsp;12&nbsp;min de moins que l’alternative&nbsp;», «&nbsp;environ 6,40&nbsp;€ économisés&nbsp;», «&nbsp;0,8&nbsp;manœuvre/km au lieu de 2,1&nbsp;». Quand l’écart est trop petit pour mériter une phrase, elle n’est pas écrite.</p>
+</section>
+
+<section>
+  <h2>Le plus calme, et pourquoi il existe</h2>
+  <p>C’est la réponse à la plainte la plus courante faite à ce genre d’application&nbsp;: être envoyé dans des rues résidentielles, devant une école, pour gagner quatre-vingt-dix secondes. Le critère est le nombre de manœuvres par kilomètre. Un trajet d’autoroute est très en dessous de 1&nbsp;; un itinéraire faufilé dans des rues de lotissement en compte plusieurs. Le chiffre est affiché, vous comparez vous-même.</p>
+</section>
+
+<section>
+  <h2>Ce que «&nbsp;le moins cher&nbsp;» chiffre vraiment</h2>
+  <p>Le coût d’un itinéraire est la somme de trois choses, et chacune est calculée séparément parce qu’elles n’obéissent pas aux mêmes règles.</p>
+
+  <h3>1. L’énergie</h3>
+  <p>La consommation de votre véhicule, corrigée de la part urbaine du trajet, multipliée par la distance et par le prix que vous avez renseigné pour le litre ou le kWh. La correction n’a pas le même signe selon la motorisation&nbsp;: un moteur thermique souffre du démarrage-arrêt et consomme davantage en ville, une voiture électrique récupère à la décélération et consomme <em>moins</em>. Les deux corrections sont appliquées dans le bon sens.</p>
+
+  <h3>2. Les péages, pays par pays</h3>
+  <p>L’Europe facture ses autoroutes de trois façons et l’écart est du vrai argent. Une version précédente de l’app appliquait un tarif français moyen à tous les pays&nbsp;: sur un Munich–Milan — autoroute allemande gratuite, vignette autrichienne, péage du Brenner, autoroute italienne — l’estimation était basse d’environ un tiers, et ne mentionnait jamais que le conducteur avait l’obligation d’acheter quelque chose avant de traverser.</p>
+  <p>Aujourd’hui, l’itinéraire est découpé en tronçons par pays, et chaque pays est facturé selon son propre régime. Le détail est sur la page <a href="vignettes.html">Vignettes et péages</a>.</p>
+
+  <h3>3. Les vignettes</h3>
+  <p>Une vignette est un coût fixe qui n’a aucun rapport avec la distance, et c’est une <em>obligation légale</em>. Elle n’est donc pas fondue en silence dans un total&nbsp;: elle est listée par pays, avec son prix, et comptée une seule fois par pays même si l’itinéraire y entre deux fois.</p>
+</section>
+
+<section>
+  <h2>Comment WayCar sait quels pays vous traversez</h2>
+  <p>Apple ne dit pas par quels pays passe une ligne d’itinéraire. WayCar échantillonne donc la ligne — par <em>distance</em> et non par sommet, parce que les sommets sont denses aux carrefours et rares sur l’autoroute, et qu’un échantillonnage par sommet passerait tout son temps en ville et manquerait des pays entiers — puis géocode chaque point à l’envers pour obtenir son code pays.</p>
+  <div class="caution">
+    <span class="tag">La règle du silence</span>
+    <p class="ink">Quand un point ne revient pas placé, WayCar ne comble le trou que s’il a une preuve <em>des deux côtés</em>. Un trou en début ou en fin d’itinéraire reste vide.</p>
+    <p>Ce n’est pas de la coquetterie. Sur le corridor suisse d’un Munich–Milan, l’Italie ne représente que 49&nbsp;km sur 495&nbsp;: un seul point. Laisser ce trou final prendre le code de son voisin transforme ces 49&nbsp;km en Suisse — un pays où le conducteur n’est pas, avec une vignette à 42&nbsp;€ dont il n’a pas besoin. Au-delà du dernier point placé, il n’y a pas de preuve, et la réponse honnête à l’absence de preuve est le silence&nbsp;: ces kilomètres ne sont attribués à personne plutôt qu’au mauvais pays.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Ce qui reste une estimation, et le dit</h2>
+  <p>Apple indique <em>si</em> un itinéraire comporte des péages, jamais quels kilomètres sont payants ni combien ils coûtent. WayCar suppose donc qu’environ trois quarts de la distance parcourue dans un pays à péage au kilomètre se fait sur des sections payantes, et applique le tarif moyen publié du pays. Le résultat est marqué comme une estimation dans l’app, et il l’est.</p>
+  <p>Là où il n’y a pas de péage sur l’itinéraire, un pays à péage au kilomètre ne coûte rien&nbsp;: la France a beaucoup de nationales gratuites, et un itinéraire qui les emprunte n’est pas facturé.</p>
+</section>
+
+<section>
+  <h2>«&nbsp;Éviter les péages&nbsp;» est un ordre, pas une préférence</h2>
+  <p>Quand vous cochez «&nbsp;éviter les péages&nbsp;» ou «&nbsp;éviter les autoroutes&nbsp;», la demande est transmise à Apple&nbsp;— qui a le droit de ne pas la suivre. Pendant longtemps, rien ne vérifiait la réponse&nbsp;: si les itinéraires revenaient mélangés, l’app prenait le plus rapide, péages compris, alors qu’un itinéraire sans péage attendait juste derrière. En France ou en Italie, cela coûte de l’argent en silence.</p>
+  <p>Désormais la liste est <em>partitionnée</em> avant d’être classée&nbsp;: aucun itinéraire respectant votre consigne ne peut passer derrière un itinéraire qui ne la respecte pas. Les autres restent affichés et restent sélectionnables, avec le prix de l’obéissance visible à côté.</p>
+</section>
+
+<section>
+  <h2>L’heure d’arrivée&nbsp;: une fourchette, pas un chiffre</h2>
+  <p>L’heure d’arrivée d’Apple décrit le trafic de maintenant. WayCar y ajoute ce qu’il a appris de vos propres trajets&nbsp;: pour chaque créneau (jour de la semaine, heure), un facteur multiplicatif entre la durée en circulation fluide et la durée réellement mise. Le modèle part d’une base européenne — le pic du matin vers 8&nbsp;h, celui du soir vers 18&nbsp;h, des week-ends beaucoup plus plats — et se déforme vers vos habitudes à mesure que vous roulez. Une seule sortie inhabituelle ne peut pas faire basculer un créneau&nbsp;; cinquante, oui.</p>
+  <p>Ce qui s’affiche est donc une fourchette accompagnée d’une raison&nbsp;: <em>trafic en aggravation prévue</em>, <em>trafic en amélioration prévue</em>, <em>n signalements sur le trajet</em>, ou <em>trafic conforme aux habitudes</em>. La confiance part de 55&nbsp;% quand le créneau n’a pas d’historique et monte vers 95&nbsp;% quand il en a.</p>
+</section>
+
+<section>
+  <h2>Pendant le trajet</h2>
+  <ul>
+    <li><strong>Le numéro de sortie passe en premier.</strong> Apple écrit «&nbsp;Prenez la sortie 12 en direction de Lyon&nbsp;». À 130&nbsp;km/h, la seule chose que vous cherchez sur le panneau, c’est le 12&nbsp;; il était au milieu d’une phrase, non accentué, dit une fois. Il est maintenant en tête. Quand le numéro n’est pas lisible dans l’instruction, WayCar dit la phrase d’origine plutôt que d’inventer un numéro.</li>
+    <li><strong>Le recalcul.</strong> L’itinéraire est rafraîchi pendant la course&nbsp;; la ligne distingue la route déjà faite, celle qui reste, et les tronçons que d’autres conducteurs signalent à l’arrêt.</li>
+    <li><strong>La pause.</strong> Après deux heures de volant, WayCar propose de s’arrêter et montre les aires encore devant vous. Un arrêt de quinze minutes remet le compteur à zéro&nbsp;; une barrière de péage ou un feu rouge, non. C’est un conseil, pas la réglementation européenne des temps de conduite&nbsp;— celle-ci concerne les véhicules de plus de 3,5&nbsp;tonnes et les autocars, pas les voitures, et prétendre le contraire serait une obligation inventée.</li>
+    <li><strong>Le ferry.</strong> Une traversée dans l’itinéraire est repérée et annoncée sur la fiche de route&nbsp;: elle se réserve, elle coûte, et elle met une partie du trajet sur un bateau.</li>
+    <li><strong>À l’arrivée.</strong> Les parcs de stationnement à moins de 600&nbsp;m, trois au maximum. WayCar ne prétend pas savoir s’il y reste des places ni ce qu’ils coûtent&nbsp;: la base de lieux d’Apple sait qu’un parking est là, et rien de plus.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Sur l’écran</h2>
+  <div class="shots">
+    <figure>
+      <img src="ecrans/frontiere.png" alt="Fiche de route WayCar pour Paris – Stuttgart : les quatre choix d’itinéraire, l’écart en minutes, une ligne zone à faibles émissions, l’ETA prédictive, et le coût en euros, CO₂ et litres." width="290" height="630" loading="lazy">
+      <figcaption><b>Avant de partir.</b> 624&nbsp;km vers Stuttgart. Les quatre choix, «&nbsp;18&nbsp;min de moins que l’alternative&nbsp;», les zones à faibles émissions de Paris et de Stuttgart nommées dans leur dispositif, l’ETA prédictive en fourchette, et le coût du trajet en euros, en CO₂ et en litres.</figcaption>
+    </figure>
+    <figure>
+      <img src="ecrans/guidage.png" alt="Guidage WayCar sur autoroute : consigne « Restez à droite sur Autoroute de l’Est vers Troyes, Metz-Nancy », panneau 130, vitesse 118 km/h, heure d’arrivée et distance restante." width="290" height="630" loading="lazy">
+      <figcaption><b>Pendant.</b> La consigne, la direction telle qu’elle est écrite sur le panneau, et à gauche le maximum légal du pays (130) à côté de la vitesse réelle (118)&nbsp;— pas une limite de route inventée.</figcaption>
+    </figure>
+    <figure>
+      <img src="ecrans/arrivee.png" alt="Fiche d’arrivée WayCar à Beaune : distance, durée, vitesse moyenne, coût, CO₂, points, la place où la voiture a été laissée, et deux parcs de stationnement à proximité." width="290" height="630" loading="lazy">
+      <figcaption><b>À l’arrivée.</b> Ce que le trajet a réellement coûté, la place où la voiture a été laissée («&nbsp;niveau −2, place 118&nbsp;»), et deux parcs à proximité avec leur distance <em>à vol d’oiseau</em> — jamais présentée comme une distance à pied.</figcaption>
+    </figure>
+  </div>
+</section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Pied de page">
+      <a href="index.html">Accueil</a>
+      <a href="vignettes.html">Vignettes</a>
+      <a href="recharge.html">Recharge</a>
+      <a href="carplay.html">CarPlay</a>
+      <a href="questions.html">Questions</a>
+      <a href="journal.html">Journal</a>
+      <a href="support.html">Assistance</a>
+      <a href="privacy.html">Confidentialité</a>
+      <a href="mentions.html">Mentions légales</a>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">CLUF</a>
+    </nav>
+    <p class="rights">&copy; 2026 Oshi Lab &middot; <b>contact@oshi-messenger.com</b></p>
+  </div>
+</footer>
+</body>
+</html>

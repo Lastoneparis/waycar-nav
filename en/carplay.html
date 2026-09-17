@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WayCar — CarPlay</title>
+<meta name="description" content="What WayCar puts on the car screen, what it deliberately leaves off, and the limits CarPlay itself imposes: one alert at a time, eight buttons, instructions cut at the street name.">
+<link rel="alternate" hreflang="fr" href="https://lastoneparis.github.io/waycar-nav/carplay.html">
+<link rel="alternate" hreflang="en" href="https://lastoneparis.github.io/waycar-nav/en/carplay.html">
+<link rel="stylesheet" href="../signage.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="gantry">
+  <div class="wrap">
+    <a class="marque" href="index.html"><span class="chev"></span>WayCar</a>
+    <nav aria-label="Main navigation">
+      <ul class="panels">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="routes.html">Routes</a></li>
+        <li><a href="vignettes.html">Vignettes</a></li>
+        <li><a href="charging.html">Charging</a></li>
+        <li><a href="carplay.html" aria-current="page">CarPlay</a></li>
+        <li><a href="questions.html">Questions</a></li>
+        <li><a href="changelog.html">Changelog</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+    </nav>
+    <div class="lang" aria-label="Language">
+      <a href="../carplay.html" hreflang="fr" lang="fr">FR</a>
+      <span aria-current="true">EN</span>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+
+<div class="head">
+  <h1>On the car screen</h1>
+  <p class="stand">CarPlay is not a mirror of the iPhone. It is a fixed set of templates with hard limits and one golden rule: the driver must never have to reach for the screen.</p>
+</div>
+
+<section>
+  <h2>The basic rule</h2>
+  <p class="lead">The phone and the car drive the <em>same</em> trip. Starting a route on the car screen puts the iPhone into turn-by-turn too; cancelling on either one cancels both. There are not two states to keep in step — there is one.</p>
+</section>
+
+<section>
+  <h2>What is on screen</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Idle (no trip running)</th><th>While guiding</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>Report</b> — the report wheel, one tap</td>
+          <td><b>Report</b> — still there</td>
+        </tr>
+        <tr>
+          <td><b>Search</b> — CarPlay’s keyboard</td>
+          <td><em>Removed.</em> A driver mid-route should not be typing.</td>
+        </tr>
+        <tr>
+          <td><b>Destinations</b> — favourites and recents</td>
+          <td><b>End trip</b></td>
+        </tr>
+        <tr>
+          <td colspan="2"><b>Recentre</b>, <b>zoom in</b>, <b>zoom out</b> on the map, in both states.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>Destinations</strong> is the entry point that works even when the keyboard is locked out because the car is moving: your favourites and recent destinations, with the distance from where you are. When nothing is saved, the list does not sit there empty — it tells you to save Home and Work from the iPhone.</p>
+  <p>The <strong>report wheel</strong> acts in a single tap, then goes straight back to the map with a confirmation that clears itself after a couple of seconds. Nobody should be left on a menu screen after a one-tap action.</p>
+  <p>The <strong>trip preview</strong> shows one choice per alternate route, summarised by duration, distance and traffic penalty — on a car screen, that is all a driver compares.</p>
+</section>
+
+<section>
+  <h2>The limits CarPlay imposes</h2>
+  <p>None of these warn at compile time: exceeding one means the head unit silently truncates, or the template is rejected at runtime. WayCar honours them explicitly.</p>
+  <ul class="grid">
+    <li><b>8 buttons maximum</b>in a grid. The report wheel is therefore limited to the eight most useful report types.</li>
+    <li><b>2 buttons per side</b>of the navigation bar. Not one more.</li>
+    <li><b>4 map buttons</b>at most.</li>
+    <li><b>One alert at a time</b>CarPlay shows a single navigation alert, and the API says so: the call that removes one takes no argument.</li>
+    <li><b>Instructions get clipped</b>Head units cut long instructions mid-word. WayCar always supplies a short form, cut at the street name (“Turn left onto Quai de la Mégisserie” becomes “Turn left”), and CarPlay picks the longest that fits.</li>
+    <li><b>No state of charge</b>iOS gives no access to any car’s state of charge, connected or not. That is why WayCar asks you for it when it needs it.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>One alert: which one</h2>
+  <p>The phone stacks its banners and never has to choose. The car has to choose, and it was choosing by accident: whichever publisher fired last won, so a faster-route offer could cover a hazard warning four hundred metres ahead — and clearing any one source took down whatever happened to be on screen, including another source’s alert.</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Priority</th><th>Alert</th><th>Horizon</th></tr></thead>
+      <tbody>
+        <tr><td><b>1</b></td><td>Speeding</td><td>Now</td></tr>
+        <tr><td><b>2</b></td><td>Hazard reported ahead</td><td>The next few hundred metres</td></tr>
+        <tr><td><b>3</b></td><td>Break due</td><td>The next half hour</td></tr>
+        <tr><td><b>4</b></td><td>Faster route</td><td>Four minutes of gain</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>The order is the phone’s own, and it is deliberate: a driver who needs to stop has a bigger problem than four minutes.</p>
+  <p>A hazard alert stays ten seconds, a route offer fifteen — long enough to read and decide, and no longer. Both clear themselves: you should never reach for the screen to make something go away.</p>
+</section>
+
+<section>
+  <h2>Each country’s law applies to the car screen too</h2>
+  <div class="caution">
+    <span class="tag">A real defect, fixed</span>
+    <p class="ink">The label for a speed check comes from the country’s rule, not from the report type. In France a check is a “zone de danger” and the word for a speed camera may not appear at all. The head unit was saying it anyway, in the one country whose law is written about exactly this, while the phone lying next to it said the lawful thing. The phone had read the rule since the rule existed; the car screen never had. That is fixed.</p>
+  </div>
+  <p>In Germany and Switzerland the car screen shows no speed check at all, exactly like the phone.</p>
+</section>
+
+<section>
+  <h2>Two manoeuvres, not one</h2>
+  <p>The phone has shown the following manoeuvre under the current one for a long time. The car screen was handed a single card: a driver looking at the head unit was told about one turn where a driver looking at the phone was told about two — and a pair of turns fifty metres apart is exactly where the second one is the whole point.</p>
+  <p>A detail that matters: CarPlay’s estimates are distances <em>remaining</em> to a manoeuvre, not the gap between two of them. The second card therefore carries the distance to the first <em>plus</em> the whole leg in between; counting it any other way would tell the driver the turn after next is nearer than the next one.</p>
+</section>
+
+<section>
+  <h2>When it goes wrong</h2>
+  <h3>You have left the route and the recalculation fails</h3>
+  <p>The car screen shows <strong>one card</strong> saying so, in place of the turns — not an alert. An alert clears itself after ten or fifteen seconds, while this condition lasts until you rejoin the route or the app gets an answer. A warning that disappears while the thing it warns about is still true is worse than none.</p>
+  <p>That is the difference between missing something and being actively wrong: the head unit used to go on counting down confidently to a manoeuvre on a road the driver had already left — and the more confidently it counts, the longer they keep following it.</p>
+  <h3>You lose the network</h3>
+  <p>Nothing changes on the car screen, deliberately. The route is already loaded and the turn being announced is still the right turn. Replacing a correct instruction with a note about connectivity would take away something true to say something you cannot act on. The phone does show a banner explaining that guidance is continuing on the route already loaded.</p>
+</section>
+
+<section>
+  <h2>What is not on the car screen</h2>
+  <p>On purpose. All of this happens on the iPhone, parked:</p>
+  <ul>
+    <li>Settings, the choice of voice and tone, the choice of app icon.</li>
+    <li>Trip history and the end-of-trip summary.</li>
+    <li>Exporting your data, and erasing it.</li>
+    <li>Professional mode (tours, zones, costs).</li>
+    <li>Entering a battery level for a charging plan.</li>
+    <li>Saving a favourite — hence the empty-list sentence, which sends you back to the phone.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>If WayCar does not appear in the car</h2>
+  <p>iOS Settings → General → CarPlay → your car → Customise, then add WayCar to the home screen. On a wired connection, a tired cable is the second most common cause. See also the <a href="support.html">Support</a> page.</p>
+</section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="routes.html">Routes</a>
+      <a href="vignettes.html">Vignettes</a>
+      <a href="charging.html">Charging</a>
+      <a href="questions.html">Questions</a>
+      <a href="changelog.html">Changelog</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="legal.html">Legal notice</a>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">EULA</a>
+    </nav>
+    <p class="rights">&copy; 2026 Oshi Lab &middot; <b>contact@oshi-messenger.com</b></p>
+  </div>
+</footer>
+</body>
+</html>

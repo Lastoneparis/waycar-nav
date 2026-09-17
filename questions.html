@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WayCar — Questions</title>
+<meta name="description" content="Les questions qu’on nous pose vraiment : hors connexion, compte, données, légalité des alertes de contrôle pays par pays, limites de vitesse, plan de recharge, péages estimés, publicité.">
+<link rel="alternate" hreflang="fr" href="https://lastoneparis.github.io/waycar-nav/questions.html">
+<link rel="alternate" hreflang="en" href="https://lastoneparis.github.io/waycar-nav/en/questions.html">
+<link rel="stylesheet" href="signage.css">
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+
+<header class="gantry">
+  <div class="wrap">
+    <a class="marque" href="index.html"><span class="chev"></span>WayCar</a>
+    <nav aria-label="Navigation principale">
+      <ul class="panels">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="itineraires.html">Itinéraires</a></li>
+        <li><a href="vignettes.html">Vignettes</a></li>
+        <li><a href="recharge.html">Recharge</a></li>
+        <li><a href="carplay.html">CarPlay</a></li>
+        <li><a href="questions.html" aria-current="page">Questions</a></li>
+        <li><a href="journal.html">Journal</a></li>
+        <li><a href="support.html">Assistance</a></li>
+      </ul>
+    </nav>
+    <div class="lang" aria-label="Langue">
+      <span aria-current="true">FR</span>
+      <a href="en/questions.html" hreflang="en" lang="en">EN</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+
+<div class="head">
+  <h1>Questions</h1>
+  <p class="stand">Les vraies, avec des réponses qui n’esquivent pas. Quand la réponse est «&nbsp;non&nbsp;», c’est écrit non.</p>
+</div>
+
+<section>
+  <h2>L’essentiel</h2>
+  <div class="qa">
+
+    <div>
+      <h3>Faut-il créer un compte&nbsp;?</h3>
+      <p>Non. Il n’y a pas de compte, pas d’inscription, pas de courriel à donner. Rien à créer, rien à se rappeler, rien à supprimer chez nous — parce qu’il n’y a rien chez nous.</p>
+    </div>
+
+    <div>
+      <h3>Est-ce que ça marche sans connexion&nbsp;?</h3>
+      <p>Partiellement, et il vaut mieux savoir exactement où est la coupure.</p>
+      <p><strong>Il faut du réseau</strong> pour chercher une adresse, calculer un itinéraire et connaître le trafic.<br>
+      <strong>Il n’en faut pas</strong> pour continuer à être guidé sur un itinéraire déjà calculé&nbsp;: la ligne et les manœuvres sont en mémoire. Si vous perdez le signal dans une vallée, le guidage ne s’arrête pas.</p>
+      <p>Ce n’est pas une application hors ligne, et nous ne l’écrivons nulle part, pas même dans les mots-clés de la fiche App Store. Si vous partez sur une route sans couverture, calculez l’itinéraire avant de partir.</p>
+    </div>
+
+    <div>
+      <h3>Mes trajets sont-ils envoyés quelque part&nbsp;?</h3>
+      <p>Non. Vos destinations récentes, vos favoris, votre historique et votre profil restent sur l’iPhone. Ce qui peut partir, ce sont vos <em>signalements</em>&nbsp;: un événement arrivé à une route, avec sa position, envoyé aux autres conducteurs. Jamais votre position à vous, en direct, vers un serveur.</p>
+      <p>La partie d’appareil à appareil diffuse bien une balise (un pseudo, une humeur, une position <em>approchée</em>) mais elle reste entre les téléphones voisins, à quelques dizaines de mètres, et ne passe par aucun serveur. Vous pouvez la couper dans les réglages.</p>
+    </div>
+
+    <div>
+      <h3>Puis-je récupérer ou effacer ce que l’app garde&nbsp;?</h3>
+      <p>Oui, dans les réglages de l’app. L’export produit un fichier JSON lisible où chaque section est accompagnée d’une phrase expliquant ce qu’elle contient&nbsp;: profil, lieux enregistrés, destinations récentes, conducteurs masqués, vos signalements, vos réglages. L’effacement supprime réellement tout cela et remet l’app à son premier lancement — sans vous réinjecter des données de démonstration à la place, ce qui serait pire que de ne pas effacer.</p>
+    </div>
+
+    <div>
+      <h3>Y a-t-il de la publicité, un abonnement, un achat&nbsp;?</h3>
+      <p>Non, aucun des trois. Pas de publicité, pas de traceur publicitaire, pas de SDK d’analyse tiers, aucun achat intégré et aucun abonnement. Il n’y a rien à restaurer.</p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>Les contrôles de vitesse</h2>
+  <div class="qa">
+
+    <div>
+      <h3>Les alertes de contrôle sont-elles légales partout en Europe&nbsp;?</h3>
+      <p>Non, et c’est pour cela que WayCar ne se comporte pas de la même façon selon le pays.</p>
+      <p><strong>Allemagne et Suisse&nbsp;:</strong> prévenir un conducteur d’un contrôle de vitesse est interdit — StVO §23 al.&nbsp;1c et art.&nbsp;57b LCR. WayCar n’affiche et n’annonce <em>rien</em> dans ces deux pays. Pas une zone, pas un avertissement plus discret&nbsp;: rien.</p>
+      <p><strong>France&nbsp;:</strong> signaler l’emplacement exact est interdit depuis l’arrêté du 3&nbsp;janvier 2012. WayCar affiche une «&nbsp;zone de danger&nbsp;» agrégée de la longueur légale (4&nbsp;km sur autoroute, 2&nbsp;km hors agglomération, 300&nbsp;m en ville) et ne prononce jamais le mot radar.</p>
+      <p><strong>Ailleurs&nbsp;:</strong> à l’endroit signalé. Un pays que l’app ne connaît pas retombe sur la zone de danger, jamais sur la position exacte.</p>
+      <p>Cela dit&nbsp;: la loi évolue, et c’est vous qui conduisez. Respecter les limites et la réglementation locale reste votre responsabilité, y compris quand elle a changé depuis la dernière mise à jour de l’app.</p>
+    </div>
+
+    <div>
+      <h3>Depuis que j’ai passé la frontière, l’app ne me prévient plus. Elle est cassée&nbsp;?</h3>
+      <p>Non&nbsp;: c’est la loi du pays où vous venez d’entrer. Et vous n’avez pas à le deviner — au passage de la frontière, WayCar énonce à voix haute la règle du pays dans lequel vous entrez, et seulement quand elle est différente de celle du pays d’où vous venez. Cette phrase ne nomme ni contrôle, ni route, ni position.</p>
+      <p>C’était le vrai problème&nbsp;: un conducteur prévenu trois fois entre Lyon et Mulhouse passe à Bâle et n’est plus jamais prévenu. Rien à l’écran ne permettait de distinguer «&nbsp;la loi l’interdit&nbsp;» de «&nbsp;la route est dégagée&nbsp;».</p>
+    </div>
+
+    <div>
+      <h3>Puis-je signaler un contrôle en Allemagne&nbsp;?</h3>
+      <p>Oui. Signaler n’est pas prévenir&nbsp;: ce que la loi interdit, c’est que l’application <em>vous</em> prévienne, vous, pendant que vous conduisez. Un conducteur allemand peut toujours dire aux autres ce qu’il a vu&nbsp;— et ces autres seront prévenus, ou pas, selon le pays où ils se trouvent.</p>
+    </div>
+
+    <div>
+      <h3>Pourquoi l’app n’affiche pas la limite de vitesse de la route où je suis&nbsp;?</h3>
+      <p>Parce qu’Apple ne la publie pas, et qu’en inventer une serait pire que de se taire&nbsp;: un nombre affiché à côté de votre compteur est lu comme une autorité, et un mauvais nombre est dangereux. WayCar affiche donc ce qui est vérifiable — les maxima légaux du pays — et ne vous avertit que lorsque vous êtes certainement au-dessus du plus élevé d’entre eux, quelle que soit la route.</p>
+    </div>
+
+    <div>
+      <h3>Un radar que je connais n’est pas signalé.</h3>
+      <p>Les bases publiques changent, et WayCar s’appuie aussi sur les signalements des autres conducteurs. Signalez-le, avec la route et le sens de circulation&nbsp;: c’est la façon la plus utile d’aider. Et rappelez-vous que dans deux pays, l’absence de signalement n’est pas un manque de données mais la loi.</p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>Les trajets et l’argent</h2>
+  <div class="qa">
+
+    <div>
+      <h3>Pourquoi le prix des péages est-il annoncé comme «&nbsp;estimé&nbsp;»&nbsp;?</h3>
+      <p>Parce qu’il l’est. Apple indique <em>si</em> un itinéraire comporte des péages, jamais quels kilomètres sont payants ni ce qu’ils coûtent. WayCar applique donc le tarif moyen publié du pays à environ trois quarts des kilomètres parcourus dans ce pays. Les vignettes, elles, sont des forfaits&nbsp;: elles sont annoncées à leur prix, par pays, une fois chacune.</p>
+    </div>
+
+    <div>
+      <h3>J’ai coché «&nbsp;éviter les péages&nbsp;» et l’itinéraire en comporte quand même.</h3>
+      <p>La consigne est transmise à Apple, qui a le droit de ne pas la suivre. Ce que WayCar garantit, c’est le classement&nbsp;: aucun itinéraire respectant votre consigne ne peut être proposé <em>derrière</em> un itinéraire qui ne la respecte pas. Les itinéraires à péage restent affichés et sélectionnables, avec ce que l’obéissance vous coûte en minutes à côté. Si aucun itinéraire sans péage n’existe, vous le verrez.</p>
+    </div>
+
+    <div>
+      <h3>Pourquoi «&nbsp;le plus court&nbsp;» me propose parfois l’itinéraire le plus rapide&nbsp;?</h3>
+      <p>Parce qu’en dessous de 2&nbsp;% d’écart de distance, c’est le plus rapide qui gagne. Un itinéraire quarante mètres plus court et onze minutes plus lent n’est pas «&nbsp;le plus court&nbsp;», c’est un piège. Même logique pour «&nbsp;le plus économique&nbsp;»&nbsp;: en dessous de vingt centimes d’écart, le temps l’emporte.</p>
+    </div>
+
+    <div>
+      <h3>Il me faut une vignette pour un pays que je ne fais que traverser&nbsp;?</h3>
+      <p>Si vous empruntez son réseau autoroutier, oui, et c’est exactement le piège que WayCar existe pour signaler. Elle est comptée une seule fois par pays, même si l’itinéraire y entre deux fois. Le détail pays par pays est sur la page <a href="vignettes.html">Vignettes et péages</a>&nbsp;— et rappelez-vous que ces régimes changent&nbsp;: la signalisation sur place fait foi.</p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>La voiture électrique</h2>
+  <div class="qa">
+
+    <div>
+      <h3>Le plan de recharge me paraît faux.</h3>
+      <p>Commencez par le chiffre de consommation que vous avez saisi pour votre véhicule&nbsp;: c’est la base de tout le calcul, et WayCar <strong>n’apprend pas</strong> votre consommation réelle trajet après trajet. Ce qu’il corrige, c’est l’allure du trajet à venir — une autoroute coûte environ un tiers de plus que ce que dit l’étiquette. Si votre chiffre de départ est optimiste, le plan le sera aussi. Corrigez-le dans les réglages du véhicule.</p>
+      <p>Trois autres causes classiques&nbsp;: le grand froid (le modèle décrit la traînée et le roulement, pas le chauffage), un coffre de toit (il dégrade l’aérodynamique là où le modèle est le plus sensible), et une voiture chargée. Détail sur la page <a href="recharge.html">Recharge</a>.</p>
+    </div>
+
+    <div>
+      <h3>Pourquoi le plan recharge à 80&nbsp;% et pas à 100&nbsp;%&nbsp;?</h3>
+      <p>Parce qu’au-delà de 80&nbsp;%, la charge est lente sur toutes les bornes rapides construites à ce jour. Un plan qui remplit à 100&nbsp;% à chaque arrêt est un plan qui gâche votre après-midi pour des kilomètres que le prochain arrêt vous aurait donnés plus vite.</p>
+    </div>
+
+    <div>
+      <h3>Pourquoi l’app me demande mon niveau de batterie&nbsp;? Elle ne peut pas le lire&nbsp;?</h3>
+      <p>Non&nbsp;: iOS ne donne accès à l’état de charge d’aucune voiture. WayCar vous le demande donc — mais seulement quand la réponse change quelque chose, c’est-à-dire sur un trajet qui dépasse environ 90&nbsp;% de l’autonomie pleine. Sur une course courte, la question serait du bruit.</p>
+    </div>
+
+    <div>
+      <h3>WayCar peut-il me dire si une borne est ouverte, libre, ou compatible&nbsp;?</h3>
+      <p>Non, aucun des trois. Apple ne publie pas les horaires d’un lieu&nbsp;: nom, téléphone, page web et catégorie, c’est tout. WayCar vous donne le téléphone et la page pour que vous vérifiiez vous-même, au lieu de laisser croire qu’il a regardé. Même réponse pour un parking&nbsp;: il ne sait ni le nombre de places libres, ni le tarif, ni la hauteur sous barrière.</p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>Divers</h2>
+  <div class="qa">
+
+    <div>
+      <h3>Dans quelles langues&nbsp;?</h3>
+      <p>Français, anglais, allemand, espagnol et italien&nbsp;: l’interface, le guidage vocal, et six voix réellement enregistrées dans chacune de ces langues. Le ton (sobre, complice ou taquin) change les mots, jamais l’information&nbsp;: la sortie, le nom de rue et le temps perdu sont toujours annoncés.</p>
+    </div>
+
+    <div>
+      <h3>Pourquoi une app de navigation me parle de pause&nbsp;?</h3>
+      <p>Parce qu’elle est la seule à savoir depuis combien de temps vous tenez le volant, et que c’est le seul moment où le conseil vaut quelque chose. Après deux heures, WayCar propose de s’arrêter et montre les aires encore devant vous. Un arrêt de quinze minutes remet le compteur à zéro&nbsp;; une barrière de péage, non. C’est un conseil de sécurité routière, pas la réglementation européenne des temps de conduite&nbsp;— celle-ci vise les véhicules de plus de 3,5&nbsp;tonnes et les autocars, pas les voitures.</p>
+    </div>
+
+    <div>
+      <h3>À quoi sert le mode professionnel&nbsp;?</h3>
+      <p>À suivre des tournées, des zones et le coût réel des trajets pour ceux dont la route est le métier. Il se coupe dans les réglages, et ce qu’il enregistre part avec l’export et avec l’effacement comme le reste.</p>
+    </div>
+
+    <div>
+      <h3>WayCar peut-il utiliser ma position en arrière-plan&nbsp;?</h3>
+      <p>Il en a besoin pour continuer à vous guider quand l’écran est éteint ou quand vous passez sur une autre app. Vous pouvez le refuser dans les Réglages iOS&nbsp;; le guidage s’interrompra alors dès que WayCar passera en arrière-plan.</p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>Autre chose&nbsp;?</h2>
+  <p>Écrivez à <a href="mailto:contact@oshi-messenger.com">contact@oshi-messenger.com</a>. La page <a href="support.html">Assistance</a> dit quoi mettre dans le message pour qu’on puisse rejouer votre trajet.</p>
+</section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Pied de page">
+      <a href="index.html">Accueil</a>
+      <a href="itineraires.html">Itinéraires</a>
+      <a href="vignettes.html">Vignettes</a>
+      <a href="recharge.html">Recharge</a>
+      <a href="carplay.html">CarPlay</a>
+      <a href="journal.html">Journal</a>
+      <a href="support.html">Assistance</a>
+      <a href="privacy.html">Confidentialité</a>
+      <a href="mentions.html">Mentions légales</a>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">CLUF</a>
+    </nav>
+    <p class="rights">&copy; 2026 Oshi Lab &middot; <b>contact@oshi-messenger.com</b></p>
+  </div>
+</footer>
+</body>
+</html>

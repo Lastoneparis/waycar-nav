@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WayCar — Journal des versions</title>
+<meta name="description" content="Le journal des versions de WayCar. Deux versions, 1.0 et 1.1, et rien d’autre : ce qui est écrit ici a réellement été livré.">
+<link rel="alternate" hreflang="fr" href="https://lastoneparis.github.io/waycar-nav/journal.html">
+<link rel="alternate" hreflang="en" href="https://lastoneparis.github.io/waycar-nav/en/changelog.html">
+<link rel="stylesheet" href="signage.css">
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+
+<header class="gantry">
+  <div class="wrap">
+    <a class="marque" href="index.html"><span class="chev"></span>WayCar</a>
+    <nav aria-label="Navigation principale">
+      <ul class="panels">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="itineraires.html">Itinéraires</a></li>
+        <li><a href="vignettes.html">Vignettes</a></li>
+        <li><a href="recharge.html">Recharge</a></li>
+        <li><a href="carplay.html">CarPlay</a></li>
+        <li><a href="questions.html">Questions</a></li>
+        <li><a href="journal.html" aria-current="page">Journal</a></li>
+        <li><a href="support.html">Assistance</a></li>
+      </ul>
+    </nav>
+    <div class="lang" aria-label="Langue">
+      <span aria-current="true">FR</span>
+      <a href="en/changelog.html" hreflang="en" lang="en">EN</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+
+<div class="head">
+  <h1>Journal des versions</h1>
+  <p class="stand">Deux versions à ce jour, et deux seulement. Cette page n’en inventera pas d’autres pour avoir l’air d’un produit plus vieux qu’il n’est.</p>
+</div>
+
+<section>
+
+  <div class="release">
+    <p><span class="vtag">1.1</span> <span class="vdate">Build 5 · septembre 2026</span></p>
+    <h3>Six voix, pour de vrai</h3>
+    <p>Les personnages étaient une seule voix système transposée en hauteur&nbsp;: la même personne, six réglages. Mesuré sur l’audio, le timbre bougeait de 12&nbsp;% pendant que la hauteur bougeait de 38&nbsp;%&nbsp;— autrement dit, on entendait une personne déguisée six fois. Ce sont désormais six voix réellement distinctes, livrées avec l’app dans les cinq langues&nbsp;: la même mesure donne 54&nbsp;%.</p>
+    <p>Un personnage se choisit d’un geste, sans rien fabriquer ni attendre, et l’app en a un dès le premier lancement.</p>
+    <h3>Corrigé</h3>
+    <ul>
+      <li>Deux voix pouvaient se superposer quand une alerte tombait pendant une manœuvre. Plus maintenant.</li>
+      <li>La ligne de l’itinéraire distingue la route déjà parcourue, celle qui reste, et les tronçons que d’autres conducteurs signalent à l’arrêt.</li>
+      <li>La flèche de manœuvre était la dernière icône restée plate&nbsp;; elle a rejoint le reste de l’interface.</li>
+      <li>Quatre défauts visuels que seule une capture d’écran pouvait montrer, trouvés en regardant l’app plutôt qu’en la testant.</li>
+    </ul>
+  </div>
+
+  <div class="release">
+    <p><span class="vtag">1.0</span> <span class="vdate">Première version</span></p>
+    <!-- TODO : date exacte de première mise en vente sur l'App Store à confirmer dans App Store Connect avant publication de cette page. -->
+    <p>Ce que la première version contenait&nbsp;:</p>
+    <ul>
+      <li><strong>Quatre itinéraires chiffrés</strong> — le plus rapide, le plus court, le plus économique, le plus calme, avec l’écart en minutes et en euros avant le départ, et une ligne expliquant pourquoi celui-ci a gagné.</li>
+      <li><strong>Péages et vignettes pays par pays</strong> — l’itinéraire est découpé par pays traversé et chacun est facturé selon son propre régime. Auparavant, un tarif français moyen était appliqué à toute l’Europe&nbsp;: sur un Munich–Milan, l’estimation était basse d’environ un tiers et ne mentionnait jamais la vignette autrichienne obligatoire.</li>
+      <li><strong>Zones à faibles émissions</strong> — Crit’Air, Umweltplakette, redevances journalières et restrictions selon l’âge du véhicule, la ville nommée et le dispositif nommé dans sa langue, sans jamais dessiner de limite de zone.</li>
+      <li><strong>Équipements hiver</strong> — la règle publiée de chaque pays traversé, avec ses dates et son nom local.</li>
+      <li><strong>Contrôles de vitesse selon la loi du pays</strong> — rien en Allemagne et en Suisse, zone de danger en France, position signalée ailleurs, et une phrase au passage de la frontière quand la règle change.</li>
+      <li><strong>Limites de vitesse par pays</strong> — les maxima légaux, annoncés à la frontière, jamais une limite de route inventée.</li>
+      <li><strong>Plan de recharge électrique</strong> — consommation estimée à l’allure réelle du trajet, réserve de 10&nbsp;%, charge à 80&nbsp;%, 2,5&nbsp;km de détour maximum, et le refus de maquiller un trajet impossible.</li>
+      <li><strong>Le numéro de sortie en premier</strong> — la seule information que l’on cherche sur le panneau, sortie du milieu de la phrase.</li>
+      <li><strong>Pause conseillée après deux heures</strong>, avec les aires encore devant vous.</li>
+      <li><strong>Ferries repérés</strong> dans l’itinéraire, parce qu’une traversée se réserve et coûte.</li>
+      <li><strong>Où vous vous êtes garé</strong> — l’étage, la place, votre note, le chemin à pied.</li>
+      <li><strong>Stationnement à l’arrivée</strong> — jusqu’à trois parcs à moins de 600&nbsp;m, sans prétendre connaître les places libres ni le tarif.</li>
+      <li><strong>Signalements par deux chemins</strong> — d’appareil à appareil sur quelques dizaines de mètres, et par le réseau pour ce qui est loin devant.</li>
+      <li><strong>CarPlay</strong> — signaler, chercher, reprendre ses destinations, deux cartes de manœuvre, une seule alerte à la fois et dans le bon ordre de priorité.</li>
+      <li><strong>Export et effacement de vos données</strong> — un fichier JSON lisible, et une suppression qui supprime vraiment.</li>
+      <li><strong>Cinq langues</strong> — français, anglais, allemand, espagnol, italien.</li>
+    </ul>
+  </div>
+
+</section>
+
+<section>
+  <h2>Ce que ce journal ne fera pas</h2>
+  <div class="caution">
+    <p class="ink">Il ne listera pas de versions qui n’ont pas existé, ni de dates arrondies pour faire une chronologie plus flatteuse. Quand une version sortira, elle sera ajoutée ici avec ce qu’elle contient réellement — y compris les corrections gênantes, comme celles de la 1.1 ci-dessus.</p>
+  </div>
+  <p>Les nouveautés d’une version future ne sont pas annoncées ici tant qu’elles ne sont pas livrées. Si vous voulez savoir ce qui est en cours, écrivez&nbsp;: <a href="mailto:contact@oshi-messenger.com">contact@oshi-messenger.com</a>.</p>
+</section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Pied de page">
+      <a href="index.html">Accueil</a>
+      <a href="itineraires.html">Itinéraires</a>
+      <a href="vignettes.html">Vignettes</a>
+      <a href="recharge.html">Recharge</a>
+      <a href="carplay.html">CarPlay</a>
+      <a href="questions.html">Questions</a>
+      <a href="support.html">Assistance</a>
+      <a href="privacy.html">Confidentialité</a>
+      <a href="mentions.html">Mentions légales</a>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">CLUF</a>
+    </nav>
+    <p class="rights">&copy; 2026 Oshi Lab &middot; <b>contact@oshi-messenger.com</b></p>
+  </div>
+</footer>
+</body>
+</html>

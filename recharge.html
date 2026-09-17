@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WayCar — La recharge électrique</title>
+<meta name="description" content="Comment WayCar planifie la recharge : consommation estimée à l’allure réelle du trajet plutôt qu’à celle de l’étiquette, réserve de 10 %, charge à 80 %, 2,5 km de détour maximum — et tout ce que l’estimation ne peut pas savoir.">
+<link rel="alternate" hreflang="fr" href="https://lastoneparis.github.io/waycar-nav/recharge.html">
+<link rel="alternate" hreflang="en" href="https://lastoneparis.github.io/waycar-nav/en/charging.html">
+<link rel="stylesheet" href="signage.css">
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+
+<header class="gantry">
+  <div class="wrap">
+    <a class="marque" href="index.html"><span class="chev"></span>WayCar</a>
+    <nav aria-label="Navigation principale">
+      <ul class="panels">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="itineraires.html">Itinéraires</a></li>
+        <li><a href="vignettes.html">Vignettes</a></li>
+        <li><a href="recharge.html" aria-current="page">Recharge</a></li>
+        <li><a href="carplay.html">CarPlay</a></li>
+        <li><a href="questions.html">Questions</a></li>
+        <li><a href="journal.html">Journal</a></li>
+        <li><a href="support.html">Assistance</a></li>
+      </ul>
+    </nav>
+    <div class="lang" aria-label="Langue">
+      <span aria-current="true">FR</span>
+      <a href="en/charging.html" hreflang="en" lang="en">EN</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+
+<div class="head">
+  <h1>Un plan de recharge à l’allure du trajet</h1>
+  <p class="stand">L’autoroute est le pire cas pour une voiture électrique, et la plupart des plans de recharge la facturent au tarif de l’étiquette. Voici exactement ce que WayCar calcule, et ce qu’il ne peut pas savoir.</p>
+</div>
+
+<section>
+  <h2>Le défaut d’origine</h2>
+  <p>Le plan de recharge s’appuyait sur le chiffre annoncé du véhicule, corrigé de la seule part de conduite urbaine. Cette correction est un effet réel et son signe était bon&nbsp;— une voiture électrique fait <em>mieux</em> que son étiquette en ville, parce qu’elle récupère de l’énergie au freinage. Mais l’autre bout manquait complètement, et c’est celui qui compte&nbsp;: une course d’autoroute est le pire cas, et le modèle la facturait au prix du catalogue.</p>
+  <p>Sur un Paris–Marseille, c’est environ un tiers de la consommation qui n’était comptée nulle part. L’app annonçait «&nbsp;arrivée à 20&nbsp;%&nbsp;» pour une voiture qui serait arrivée à rien.</p>
+</section>
+
+<section>
+  <h2>D’où vient le chiffre</h2>
+  <p>L’énergie dépensée par kilomètre est dominée par deux termes. La traînée aérodynamique est une force proportionnelle au carré de la vitesse, donc l’énergie qu’elle coûte <em>par kilomètre</em> varie elle aussi comme v². La résistance au roulement est à peu près constante par kilomètre. La consommation au kilomètre a donc la forme <code>R + K·v²</code>, et tout le modèle consiste à normaliser cette forme pour qu’elle reproduise exactement le chiffre annoncé par le constructeur autour de 90&nbsp;km/h — l’allure à laquelle une vraie voiture fait à peu près ce que dit son étiquette.</p>
+  <p>La courbure <code>K</code> est fixée de sorte qu’un 130 stabilisé coûte environ 35&nbsp;% de plus qu’un 90 stabilisé, ce que montrent les relevés publiés sur le parc européen. Le facteur obtenu est borné entre <strong>0,85</strong> et <strong>1,55</strong>&nbsp;: en dessous du plancher la voiture est au pas et c’est le chauffage qui domine, une physique que cette forme ne décrit pas&nbsp;; au-dessus du plafond aucune limite européenne ne s’applique et l’extrapolation cesse d’être une preuve.</p>
+  <div class="caution">
+    <span class="tag">Ce que c’est, et ce que ce n’est pas</span>
+    <p class="ink">C’est un <strong>modèle</strong>, pas une mesure de votre voiture à vous. Il ne peut pas connaître un coffre de toit, un vent de face, un coffre plein ou une batterie froide.</p>
+    <p>Et il faut le dire franchement&nbsp;: WayCar n’apprend pas votre consommation réelle trajet après trajet. Le chiffre de départ reste celui que vous avez renseigné pour votre véhicule&nbsp;; ce que WayCar corrige, c’est <em>l’allure du trajet à venir</em>. Si le chiffre que vous avez saisi est optimiste, le plan le sera aussi. Corrigez-le dans les réglages du véhicule&nbsp;: c’est le seul levier qui déplace vraiment l’estimation.</p>
+  </div>
+  <p>Ce que WayCar apprend, en revanche, ce sont vos <em>durées</em>&nbsp;: le profil de trafic par créneau horaire se déforme vers vos habitudes à mesure que vous roulez, et l’heure d’arrivée devient plus juste. Cela change la fourchette d’arrivée, pas la consommation.</p>
+</section>
+
+<section>
+  <h2>Les trois règles du plan</h2>
+  <ul class="grid">
+    <li><b>La réserve&nbsp;: 10&nbsp;%</b>Le plan ne laisse jamais la batterie descendre sous 10&nbsp;%, sur aucune étape, y compris la dernière jusqu’à la destination. C’est la marge qu’un conducteur se garderait, et c’est aussi elle qui absorbe ce que le modèle ne sait pas&nbsp;: l’allure d’autoroute, le froid, une voiture chargée, un coffre de toit.</li>
+    <li><b>La charge&nbsp;: 80&nbsp;%</b>Au-delà de 80&nbsp;%, la charge est lente sur toutes les bornes rapides construites à ce jour. Un plan qui remplit à 100&nbsp;% à chaque arrêt est un plan qui gâche votre après-midi.</li>
+    <li><b>Le détour&nbsp;: 2,5&nbsp;km</b>Une borne plus éloignée que cela de la route n’est pas sur le chemin, quoi qu’elle fasse économiser. Et le détour compte <em>double</em>&nbsp;: on revient là où on avait quitté la route.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Comment les arrêts sont choisis</h2>
+  <p>Deux objectifs, et leur ordre est tout le sujet. Un arrêt coûte une demi-heure&nbsp;: le plan en prend donc le moins possible. Entre deux bornes qui laissent le même nombre d’arrêts à faire ensuite, il prend celle qui est la plus près de la route.</p>
+  <p>Le point non évident&nbsp;: le coût d’une borne candidate n’est <strong>pas</strong> son détour, c’est le nombre d’arrêts dont le <em>reste</em> du trajet aura besoin une fois qu’on aura chargé là. Choisir d’abord le détour le plus court achète deux kilomètres de route au prix d’un arrêt entier quand la borne la plus proche tombe juste en dessous de ce que l’étape suivante exigeait. Une demi-heure pour deux kilomètres.</p>
+  <div class="plate-local">
+    <p class="ink">Un Paris–Marseille dans une voiture de 57&nbsp;kWh donne <strong>trois arrêts et environ trois cents mètres de détour au total</strong>. Le même trajet, en choisissant les bornes par détour croissant, en donnait quatre.</p>
+  </div>
+  <p>À égalité de nombre d’arrêts, c’est le moins de route parcourue qui gagne&nbsp;; à égalité encore, celle qui est la plus loin sur le trajet.</p>
+</section>
+
+<section>
+  <h2>Quand ça ne passe pas</h2>
+  <p>S’il existe sur l’itinéraire une portion plus longue que l’autonomie utile de la voiture sans rien dessus, WayCar le dit&nbsp;: <em>trajet impossible avec les bornes trouvées, à partir du kilomètre&nbsp;X</em>. Il ne le maquille pas avec un arrêt qui arriverait à 3&nbsp;%. Et le kilomètre annoncé est celui où le trou commence réellement, pas le kilomètre zéro.</p>
+</section>
+
+<section>
+  <h2>Ce que WayCar vous demande, et quand</h2>
+  <p>iOS ne donne accès à l’état de charge d’aucune voiture. WayCar ne peut donc pas le lire&nbsp;: il vous le demande. Mais seulement quand la réponse change quelque chose&nbsp;— c’est-à-dire quand le trajet dépasse environ 90&nbsp;% de l’autonomie pleine du véhicule. Sur une course courte, n’importe quel niveau plausible passe et la question serait du bruit&nbsp;; sur une longue, il n’y a pas de plan possible sans elle.</p>
+</section>
+
+<section>
+  <h2>Ce que le plan ne sait pas&nbsp;: la liste complète</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Ce que c’est</th><th>Pourquoi WayCar ne le sait pas</th><th>Ce que ça fait au plan</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>Le grand froid</b></td>
+          <td>Le modèle décrit la traînée et le roulement, pas le chauffage de l’habitacle ni le préconditionnement de la batterie.</td>
+          <td>Par grand froid, une voiture électrique consomme nettement plus et charge plus lentement. La réserve de 10&nbsp;% n’absorbe pas tout&nbsp;: prévoyez un arrêt de plus, et n’engagez pas la dernière étape au ras du plan.</td>
+        </tr>
+        <tr>
+          <td><b>Le chargement et le coffre de toit</b></td>
+          <td>Rien ne les déclare à l’app.</td>
+          <td>Un coffre de toit dégrade l’aérodynamique exactement là où le modèle est le plus sensible, sur autoroute. Le plan sera optimiste.</td>
+        </tr>
+        <tr>
+          <td><b>Le vent et le relief</b></td>
+          <td>Ni l’un ni l’autre n’entrent dans le calcul.</td>
+          <td>Un col ou un vent de face soutenu creuse l’écart&nbsp;; une longue descente le comble en partie.</td>
+        </tr>
+        <tr>
+          <td><b>La courbe de charge de votre voiture</b></td>
+          <td>Le plan raisonne en états de charge, pas en minutes&nbsp;: il vise 80&nbsp;% parce que c’est là que toutes les courbes s’effondrent, sans modéliser la vôtre.</td>
+          <td>Les durées d’arrêt réelles dépendent de votre véhicule et de la puissance de la borne. Le plan vous dit <em>où</em> et <em>à quel niveau</em>, pas combien de minutes exactement.</td>
+        </tr>
+        <tr>
+          <td><b>La puissance réelle de la borne</b></td>
+          <td>Non publiée de façon fiable dans les données de lieux dont dispose l’app.</td>
+          <td>Une borne lente allonge l’arrêt sans changer le nombre d’arrêts.</td>
+        </tr>
+        <tr>
+          <td><b>L’horaire d’ouverture</b></td>
+          <td>Apple ne publie pas les horaires d’un lieu&nbsp;: nom, téléphone, page web et catégorie, c’est tout.</td>
+          <td>WayCar <strong>ne peut pas</strong> vérifier qu’une borne est ouverte et le dit, au lieu de laisser croire qu’il a regardé. Il vous donne le téléphone et la page pour que vous vérifiiez.</td>
+        </tr>
+        <tr>
+          <td><b>Si la borne est libre, en panne, ou compatible</b></td>
+          <td>Aucune de ces informations n’est dans les données disponibles.</td>
+          <td>Prévoyez une solution de repli sur les étapes serrées.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Sur l’écran</h2>
+  <figure>
+    <img src="ecrans/recharge.png" alt="Plan de recharge WayCar pour 777 km vers Marseille : trois arrêts de recharge listés avec le kilomètre, le nom de la station, l’état de charge à l’arrivée et au départ." width="290" height="630" loading="lazy">
+    <figcaption>Capture réelle&nbsp;: 777&nbsp;km vers Marseille. Trois arrêts, chacun avec son kilomètre sur le trajet, son état de charge à l’arrivée et au départ, et la mention que les horaires ne sont pas vérifiables.</figcaption>
+  </figure>
+</section>
+
+<section>
+  <h2>Et pour une voiture thermique</h2>
+  <p>Le même raisonnement d’autonomie s’applique&nbsp;: WayCar calcule combien de pleins un trajet demande à partir de ce que la voiture emporte et de sa consommation, avec la même réserve de 10&nbsp;%. La différence est pratique&nbsp;: une station-service est à cinq minutes de n’importe quelle autoroute, une recharge dure une demi-heure et se planifie. C’est pour cela que le plan détaillé existe pour l’électrique et pas pour le reste.</p>
+  <p>À noter, dans l’autre sens&nbsp;: sur le calcul de coût, une part urbaine <em>augmente</em> la consommation d’un moteur thermique d’environ 28&nbsp;% à l’extrême et <em>réduit</em> celle d’une électrique d’environ 6&nbsp;%. Les deux corrections existent, chacune dans son sens.</p>
+</section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Pied de page">
+      <a href="index.html">Accueil</a>
+      <a href="itineraires.html">Itinéraires</a>
+      <a href="vignettes.html">Vignettes</a>
+      <a href="carplay.html">CarPlay</a>
+      <a href="questions.html">Questions</a>
+      <a href="journal.html">Journal</a>
+      <a href="support.html">Assistance</a>
+      <a href="privacy.html">Confidentialité</a>
+      <a href="mentions.html">Mentions légales</a>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">CLUF</a>
+    </nav>
+    <p class="rights">&copy; 2026 Oshi Lab &middot; <b>contact@oshi-messenger.com</b></p>
+  </div>
+</footer>
+</body>
+</html>

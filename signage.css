@@ -1,0 +1,597 @@
+/* ------------------------------------------------------------------
+   WayCar — signage.css
+   Le vocabulaire visuel du site est celui de la signalisation
+   autoroutière européenne : bandeau bleu autoroute, panneaux verts
+   pour le réseau national, cartouches blancs pour le local, jaune de
+   triangle pour les mises en garde. Les chevrons sont le motif.
+   ------------------------------------------------------------------ */
+
+:root {
+  /* Les couleurs de la route */
+  --auto:      #1b5fa8;   /* bleu autoroute */
+  --auto-deep: #12406f;
+  --auto-lit:  #2a76c8;
+  --nat:       #0f7a4a;   /* vert route nationale */
+  --nat-deep:  #0a5735;
+  --warn:      #f2c200;   /* jaune du triangle */
+  --warn-ink:  #3a2d00;
+  --alert:     #c8102e;   /* rouge interdiction */
+
+  /* La page */
+  --bg:     #eef1f4;
+  --sheet:  #ffffff;      /* le cartouche blanc, panneau local */
+  --ink:    #10161d;
+  --dim:    #5b6773;
+  --faint:  #8593a1;
+  --rule:   #d8dee5;
+  --keyline:#ffffff;      /* le filet blanc autour d'un panneau */
+
+  --face: "Helvetica Neue", Helvetica, "Segoe UI", Roboto, Arial, sans-serif;
+  --gut: 20px;
+  --max: 54rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --auto:      #1e68b5;
+    --auto-deep: #0d2f52;
+    --auto-lit:  #3d8ade;
+    --nat:       #148753;
+    --nat-deep:  #0a4f31;
+    --bg:     #0b1014;
+    --sheet:  #141b22;
+    --ink:    #e9eef3;
+    --dim:    #9aa7b4;
+    --faint:  #71808e;
+    --rule:   #232d37;
+    --keyline:#cfe0f2;
+  }
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font: 16.5px/1.68 var(--face);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.skip {
+  position: absolute; left: -9999px;
+  background: var(--warn); color: var(--warn-ink);
+  padding: 10px 16px; font-weight: 700; z-index: 99;
+}
+.skip:focus { left: 8px; top: 8px; }
+
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gut); }
+
+/* ==================================================================
+   LE PORTIQUE — bandeau bleu pleine largeur, présent sur chaque page
+   ================================================================== */
+
+.gantry {
+  background: var(--auto);
+  background-image: linear-gradient(180deg, var(--auto-lit) 0%, var(--auto) 46%, var(--auto-deep) 100%);
+  border-bottom: 5px solid var(--auto-deep);
+  color: #fff;
+  padding: 12px 0 13px;
+}
+
+.gantry .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+}
+
+/* Le cartouche du nom : panneau blanc, filet bleu, chevron */
+.marque {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: #fff;
+  color: var(--auto-deep);
+  border-radius: 9px;
+  padding: 7px 14px 7px 11px;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: .045em;
+  text-decoration: none;
+  box-shadow: inset 0 0 0 2px var(--auto), 0 1px 0 rgba(0,0,0,.28);
+  flex: none;
+}
+.marque .chev {
+  width: 0; height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 11px solid var(--auto);
+}
+
+/* Les onglets-panneaux */
+.panels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  flex: 1 1 auto;
+  list-style: none;
+}
+.panels a {
+  display: block;
+  padding: 6px 11px;
+  border-radius: 7px;
+  color: #eaf2fb;
+  text-decoration: none;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: .085em;
+  text-transform: uppercase;
+  background: rgba(255,255,255,.10);
+  box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.35);
+  white-space: nowrap;
+}
+.panels a:hover { background: rgba(255,255,255,.22); }
+.panels a[aria-current="page"] {
+  background: #fff;
+  color: var(--auto-deep);
+  box-shadow: inset 0 0 0 2px var(--auto-deep);
+}
+
+/* Le sélecteur de langue, dans le même bandeau */
+.lang {
+  display: flex;
+  gap: 4px;
+  flex: none;
+  margin-left: auto;
+}
+.lang a, .lang span {
+  display: block;
+  padding: 6px 9px;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-decoration: none;
+}
+.lang a { color: #d7e6f7; background: rgba(0,0,0,.18); box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.3); }
+.lang a:hover { background: rgba(0,0,0,.32); }
+.lang span { background: var(--warn); color: var(--warn-ink); box-shadow: inset 0 0 0 1.5px rgba(0,0,0,.25); }
+
+/* ==================================================================
+   LE GRAND PANNEAU DE DIRECTION (accueil)
+   ================================================================== */
+
+.direction {
+  background: var(--auto);
+  background-image: linear-gradient(180deg, var(--auto) 0%, var(--auto-deep) 100%);
+  color: #fff;
+  padding: 44px 0 46px;
+}
+.direction .plate {
+  border: 3px solid var(--keyline);
+  border-radius: 16px;
+  padding: 26px 24px 24px;
+}
+.direction h1 {
+  font-size: clamp(27px, 6.4vw, 46px);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -.012em;
+  max-width: 19ch;
+}
+.direction .stand {
+  margin-top: 16px;
+  font-size: clamp(16px, 2.4vw, 19px);
+  line-height: 1.55;
+  color: #d6e6f7;
+  max-width: 48ch;
+}
+
+/* La liste des directions, chacune avec sa flèche */
+.exits {
+  list-style: none;
+  margin-top: 26px;
+  border-top: 2px solid rgba(255,255,255,.4);
+}
+.exits li {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 2px solid rgba(255,255,255,.4);
+  font-size: 15.5px;
+  color: #dcebf9;
+}
+.exits li b {
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: .03em;
+  flex: none;
+  min-width: 8.5rem;
+}
+.exits li::before {
+  content: "";
+  flex: none;
+  width: 0; height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 9px solid var(--warn);
+  transform: translateY(-1px);
+}
+
+/* ==================================================================
+   CORPS DE PAGE
+   ================================================================== */
+
+main { padding-bottom: 80px; }
+
+.head { padding: 42px 0 8px; }
+.head h1 {
+  font-size: clamp(25px, 5.2vw, 37px);
+  line-height: 1.14;
+  font-weight: 800;
+  letter-spacing: -.012em;
+  max-width: 22ch;
+}
+.head .stand {
+  margin-top: 13px;
+  color: var(--dim);
+  font-size: 17.5px;
+  max-width: 52ch;
+}
+
+section { padding: 34px 0 6px; }
+
+/* Le titre de section : petit panneau vert, comme une route nationale */
+h2 {
+  display: inline-block;
+  background: var(--nat);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: 5px 11px;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.55);
+  margin-bottom: 18px;
+}
+
+h3 {
+  font-size: 17px;
+  font-weight: 750;
+  letter-spacing: -.005em;
+  margin: 26px 0 7px;
+}
+h3:first-child { margin-top: 0; }
+
+h4 {
+  font-size: 14px;
+  font-weight: 750;
+  letter-spacing: .02em;
+  margin: 18px 0 5px;
+}
+
+p { margin-bottom: 14px; color: var(--dim); }
+p.ink { color: var(--ink); }
+p.lead { font-size: 17.5px; color: var(--ink); }
+
+ul, ol { margin: 0 0 14px 1.15em; color: var(--dim); }
+li { margin-bottom: 7px; }
+
+strong, b { color: var(--ink); font-weight: 700; }
+em { font-style: italic; }
+
+a { color: var(--auto); text-decoration-thickness: 1.5px; text-underline-offset: 2px; }
+a:hover { color: var(--auto-deep); }
+@media (prefers-color-scheme: dark) { a:hover { color: var(--auto-lit); } }
+
+code, .mono {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: .9em;
+  background: rgba(27,95,168,.09);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+@media (prefers-color-scheme: dark) { code, .mono { background: rgba(61,138,222,.16); } }
+
+hr { border: 0; border-top: 1px solid var(--rule); margin: 34px 0; }
+
+/* ==================================================================
+   PANNEAUX
+   ================================================================== */
+
+/* Cartouche blanc = panneau local */
+.plate-local {
+  background: var(--sheet);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 20px 22px;
+  margin-bottom: 18px;
+}
+.plate-local > :last-child { margin-bottom: 0; }
+
+/* Le panneau de mise en garde : jaune de triangle */
+.caution {
+  background: var(--sheet);
+  border: 1px solid var(--rule);
+  border-left: 7px solid var(--warn);
+  border-radius: 0 12px 12px 0;
+  padding: 18px 22px;
+  margin-bottom: 18px;
+}
+.caution > :last-child { margin-bottom: 0; }
+.caution .tag {
+  display: inline-block;
+  background: var(--warn);
+  color: var(--warn-ink);
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 9px;
+}
+
+/* Le panneau d'interdiction */
+.forbid {
+  background: var(--sheet);
+  border: 1px solid var(--rule);
+  border-left: 7px solid var(--alert);
+  border-radius: 0 12px 12px 0;
+  padding: 18px 22px;
+  margin-bottom: 18px;
+}
+.forbid > :last-child { margin-bottom: 0; }
+
+/* La grille de panneaux bleus */
+.grid {
+  list-style: none;
+  margin: 0 0 18px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+}
+.grid li {
+  background: var(--sheet);
+  border: 1px solid var(--rule);
+  border-top: 5px solid var(--auto);
+  border-radius: 4px 4px 12px 12px;
+  padding: 16px 18px;
+  font-size: 15px;
+  color: var(--dim);
+  margin: 0;
+}
+.grid li b {
+  display: block;
+  color: var(--ink);
+  font-weight: 750;
+  font-size: 15.5px;
+  letter-spacing: .01em;
+  margin-bottom: 4px;
+}
+
+/* ==================================================================
+   LA RANGÉE PAYS — l'élément signature
+   ================================================================== */
+
+.countries {
+  list-style: none;
+  margin: 0 0 20px;
+  border-top: 2px solid var(--rule);
+}
+.countries > li {
+  display: grid;
+  grid-template-columns: 4.4rem 1fr;
+  gap: 4px 16px;
+  align-items: start;
+  padding: 15px 0 14px;
+  border-bottom: 2px solid var(--rule);
+  margin: 0;
+}
+
+/* La plaque de code pays, façon plaque minéralogique européenne */
+.cc {
+  grid-row: span 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.7rem;
+  background: var(--auto);
+  color: #fff;
+  font-weight: 800;
+  font-size: 19px;
+  letter-spacing: .12em;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.65);
+}
+.cc.is-vignette  { background: var(--nat); }
+.cc.is-barrier   { background: var(--auto); }
+.cc.is-free      { background: #5b6773; }
+@media (prefers-color-scheme: dark) { .cc.is-free { background: #46525e; } }
+
+.countries .name {
+  font-weight: 750;
+  color: var(--ink);
+  font-size: 16.5px;
+  letter-spacing: .01em;
+}
+.countries .regime {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--nat);
+}
+.countries .regime.barrier { color: var(--auto); }
+.countries .regime.free { color: var(--faint); }
+.countries .says {
+  font-size: 14.5px;
+  color: var(--dim);
+  line-height: 1.55;
+}
+.countries .says::before {
+  content: "";
+  display: inline-block;
+  width: 0; height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 7px solid var(--warn);
+  margin-right: 7px;
+  transform: translateY(-1px);
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  font-size: 13px;
+  color: var(--dim);
+  margin-bottom: 20px;
+}
+.legend span { display: inline-flex; align-items: center; gap: 7px; }
+.legend i {
+  width: 15px; height: 15px; border-radius: 4px; display: block;
+  box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.6);
+}
+
+/* ==================================================================
+   TABLEAUX
+   ================================================================== */
+
+.tablewrap { overflow-x: auto; margin-bottom: 18px; -webkit-overflow-scrolling: touch; }
+
+table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 24rem; }
+th, td { text-align: left; padding: 11px 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th {
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--auto-deep);
+  font-weight: 800;
+}
+th:first-child { border-radius: 6px 0 0 0; }
+th:last-child  { border-radius: 0 6px 0 0; }
+td { color: var(--dim); }
+td b { color: var(--ink); font-weight: 750; }
+
+/* ==================================================================
+   QUESTIONS
+   ================================================================== */
+
+.qa { border-top: 2px solid var(--rule); }
+.qa > div { padding: 20px 0 6px; border-bottom: 2px solid var(--rule); }
+.qa h3 {
+  margin: 0 0 8px;
+  font-size: 17px;
+  font-weight: 750;
+  display: flex;
+  gap: 11px;
+  align-items: baseline;
+}
+.qa h3::before {
+  content: "";
+  flex: none;
+  width: 0; height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 9px solid var(--auto);
+  transform: translateY(-1px);
+}
+
+/* ==================================================================
+   JOURNAL
+   ================================================================== */
+
+.release { padding: 22px 0; border-bottom: 2px solid var(--rule); }
+.release:first-child { border-top: 2px solid var(--rule); }
+.vtag {
+  display: inline-block;
+  background: var(--auto);
+  color: #fff;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: .08em;
+  padding: 4px 11px;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.55);
+  margin-right: 10px;
+}
+.vdate { font-size: 12.5px; color: var(--faint); letter-spacing: .07em; text-transform: uppercase; font-weight: 700; }
+.release h3 { margin: 14px 0 7px; }
+
+/* ==================================================================
+   ÉCRANS
+   ================================================================== */
+
+figure {
+  margin: 0 0 20px;
+  background: var(--sheet);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+}
+figure img {
+  max-width: 100%;
+  width: 290px;
+  height: auto;
+  border-radius: 14px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 1px 12px rgba(0,0,0,.14);
+}
+figcaption {
+  margin-top: 13px;
+  font-size: 13.5px;
+  color: var(--dim);
+  line-height: 1.5;
+  text-align: left;
+}
+
+.shots { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); }
+.shots figure { margin-bottom: 0; }
+
+/* ==================================================================
+   PIED DE PAGE
+   ================================================================== */
+
+footer {
+  background: var(--auto-deep);
+  color: #c9dcee;
+  padding: 30px 0 34px;
+  font-size: 13.5px;
+  border-top: 5px solid var(--auto);
+}
+footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 26px; align-items: baseline; }
+footer nav { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+footer a { color: #fff; }
+footer a:hover { color: var(--warn); }
+footer .rights { color: #8fb2d2; letter-spacing: .03em; }
+footer .rights b { color: #e2eefa; font-weight: 700; }
+
+/* ==================================================================
+   375 px
+   ================================================================== */
+
+@media (max-width: 460px) {
+  :root { --gut: 16px; }
+  body { font-size: 16px; }
+  .gantry .wrap { gap: 9px 10px; }
+  .marque { font-size: 16px; padding: 6px 11px 6px 9px; }
+  .panels { order: 3; width: 100%; gap: 4px; }
+  .panels a { font-size: 11px; letter-spacing: .06em; padding: 5px 8px; }
+  .lang { order: 2; }
+  .direction .plate { padding: 20px 17px 19px; border-width: 2px; }
+  .direction { padding: 30px 0 32px; }
+  .exits li { flex-wrap: wrap; }
+  .exits li b { min-width: 0; width: 100%; }
+  .countries > li { grid-template-columns: 3.5rem 1fr; gap: 3px 12px; }
+  .cc { height: 2.3rem; font-size: 16px; }
+  figure img { width: 100%; }
+}
